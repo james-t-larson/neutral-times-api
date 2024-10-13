@@ -11,8 +11,7 @@
 - [Installation](#installation)
 - [Configuration](#configuration)
 - [API Endpoints](#api-endpoints)
-- [Usage](#usage)
-- [Contributing](#contributing)
+- [Media Fairness and Balance Guidelines](docs/media_fairness_guidelines.md)
 
 ---
 
@@ -77,7 +76,7 @@ Fetch all stories, or filter by a specific `id`.
 #### Example Request:
 
 ```bash
-GET /stories?apiKey=your-api-key
+GET /stories?id=1
 ```
 
 #### Example Response:
@@ -101,7 +100,6 @@ GET /stories?apiKey=your-api-key
 ```
 
 ### Error Responses:
-
 | Status Code | Message                      |
 |-------------|------------------------------|
 | 400         | "Invalid parameter 'id'."    |
@@ -110,26 +108,4 @@ GET /stories?apiKey=your-api-key
 
 For more details on API structure, refer to the API documentation in the project.
 
----
 
-## Usage
-
-1. **Generate New Stories**:
-
-   You can use background jobs (e.g., Sidekiq) to automatically query the news and generate articles every 12 hours. The GPT-based system will use this data to create or update stories.
-
-2. **Query Stories via API**:
-
-   You can fetch stories using the provided REST API.
-
----
-
-## Contributing
-
-If you’d like to contribute to **Neutral News Gen**, please fork the repository and submit a pull request. We welcome improvements to the API, automation, and any other enhancements.
-
----
-
-## License
-
-This project is licensed under the MIT License. See the `LICENSE` file for more details.

@@ -14,7 +14,7 @@ class Story < ApplicationRecord
     3.times do
       story.contents.create!(
         sub_title: Faker::Lorem.sentence,
-        text: Faker::Lorem.paragraphs(number: 5).join("\n\n")
+        text: Faker::Lorem.paragraphs(number: 5)
       )
     end
 
