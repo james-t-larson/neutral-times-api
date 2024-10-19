@@ -1,16 +1,20 @@
 class StoriesController < ApplicationController
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+
+  def show
+    @story = Story.find(params[:id])
+    render json: @story.as_json(include: :contents)
+  end
+
   def index
-    if params[:id]
-      story = Story.includes(:contents).find_by(id: params[:id])
-      if story
-        render json: story.as_json(include: :contents)
-      else
-        render json: { error: 'Story not found' }, status: :not_found
-      end
-    else
-      stories = Story.includes(:contents).all
-      render json: stories.as_json(include: :contents)
-    end
+    stories = Story.includes(:contents).all
+    render json: stories.as_json(include: :contents)
+  end
+
+  private
+
+  def record_not_found
+    render json: { error: "Story not found" }, status: :not_found
   end
 end
 
