@@ -48,4 +48,3 @@ story2.contents.create!(
 )
 
 puts "Seed data successfully created!"
-
