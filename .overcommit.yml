@@ -18,17 +18,11 @@
 PreCommit:
   RuboCop:
     enabled: true
-    command: ['bin/rubocop', '-f', 'github', '--autocorrect']
-    include:
-      - '*'
+    required_executable: 'bin/rubocop'
+    description: 'Analyzing Ruby code with RuboCop'
+    command: ['bin/rubocop', '-f', 'github']
     exclude:
       - '.yml'  
-    on_warn: fail
-    required_executable: 'git'
-    allow_file_modifications: true
-    on_success: |
-      echo "Re-staging auto-corrected files..."
-      git add -u
 
   Minitest:
     enabled: true
