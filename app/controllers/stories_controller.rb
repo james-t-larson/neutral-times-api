@@ -17,4 +17,3 @@ class StoriesController < ApplicationController
     render json: { error: "Story not found" }, status: :not_found
   end
 end
-
