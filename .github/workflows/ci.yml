@@ -97,10 +97,9 @@ jobs:
           RAILS_ENV: test
           DATABASE_URL: postgres://postgres:postgres@localhost:5432
         run: |
-          bin/rails db:create db:schema:load
-
-      - name: Check schema consistency
-        run: bin/rails db:abort_if_pending_migrations
+          bin/rails db:create
+          bin/rails db:schema:load
+          bin/rails db:abort_if_pending_migrations
 
       - name: Run tests
         env:
