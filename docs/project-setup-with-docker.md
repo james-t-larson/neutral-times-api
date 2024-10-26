@@ -42,6 +42,3 @@ sudo docker-compose down
 - **Cleaning Docker Environment**:
    Use `bin/docker-clean-up` to stop, remove, and reset Docker images, volumes, and cache.
 
----
-
-This guide should cover all required steps to get your project up and running with Docker. Let me know if you need further details!
