@@ -1,0 +1,40 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@db:5432
+      SECRET_KEY_BASE: '8d8d9b6c3216759f1ad95c7f526f09b1f0e1cccae28992870e81c6006800eb38058a39778093f107a85f87135ae8045b0a4a25e4cadeb17932f0335d2118147f'
+      # REDIS_URL: redis://redis:6379/0
+    depends_on:
+      - db
+      # - redis
+    volumes:
+      - .:/app
+      - ./config/certs/server.key:/app/config/certs/server.key
+      - ./config/certs/server.crt:/app/config/certs/server.crt
+
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # redis:
+  #   image: redis
+  #   ports:
+  #     - "6379:6379"
+  #   healthcheck:
+  #     test: ["CMD", "redis-cli", "ping"]
+  #     interval: 10s
+  #     timeout: 5s
+  #     retries: 5
+  #
