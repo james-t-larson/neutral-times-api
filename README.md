@@ -9,10 +9,10 @@
 
 ## Table of Contents
 - [Installation](#installation)
-- [Project Setup with Docker](#project-setup-with-docker)
+- [Project Setup with Docker](docs/project-setup-with-docker.md)
 - [Configuration](#configuration)
 - [API Endpoints](#api-endpoints)
-- [Media Fairness and Balance Guidelines](docs/media_fairness_guidelines.md)
+- [Media Fairness and Balance Guidelines](docs/media-fairness-guidelines.md)
 
 ---
 
