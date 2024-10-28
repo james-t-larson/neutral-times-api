@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :stories, only: [ :index, :show ]
+  resources :articles, only: [ :index, :show ]
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
   # Defines the root path route ("/")
-  root "stories#index"
+  root "article#index"
 end

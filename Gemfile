@@ -36,7 +36,7 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 # Highlight the fine-grained location where an error occurred [https://github.com/ruby/error_highlight]
-gem "error_highlight", "0.3.0", platforms: [ :ruby ], require: true
+gem "error_highlight", "0.6.0", platforms: [ :ruby ], require: true
 
 gem "webmock", require: false
 
@@ -68,3 +68,5 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "ruby-openai"
