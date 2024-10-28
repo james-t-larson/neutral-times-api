@@ -87,7 +87,7 @@ GET /stories?id=1
   {
     "id": 1,
     "title": "Breaking News: Ruby on Rails Rocks!",
-    "summary": "A detailed story about how Ruby on Rails is a powerful web development framework.",
+    "summary": "A detailed article about how Ruby on Rails is a powerful web development framework.",
     "published_at": "2024-10-12T20:36:26.097Z",
     "content": [
       {
@@ -104,7 +104,7 @@ GET /stories?id=1
 | Status Code | Message                      |
 |-------------|------------------------------|
 | 400         | "Invalid parameter 'id'."    |
-| 404         | "Story not found."           |
+| 404         | "Article not found."           |
 | 500         | "An unexpected error occurred." |
 
 For more details on API structure, refer to the API documentation in the project.

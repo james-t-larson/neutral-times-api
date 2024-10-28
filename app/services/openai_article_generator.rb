@@ -1,23 +1,21 @@
 require "openai"
 
-class OpenaiStoryGenerator
-  def initialize(content, api_key)
+class OpenaiArticleGenerator
+  def initialize(api_key = nil)
     @api_key = api_key || Rails.application.credentials.dig(:openai, :api_key)
     @client = OpenAI::Client.new(access_token: @api_key)
-    @content = content
+    @rules = YAML.load_file(Rails.root.join("config/rules", "openai_article_generator.yml"))["system_rules"]
   end
 
-  def generate_article
+  def generate_article(content)
+    @content = content
     @client.chat(
       parameters: {
         model: "gpt-4",
         messages: [
           {
             role: "system",
-            content: <<~RULES
-            Generate news articles based on the provided media fairness and balance rules...
-            # (include all the content rules as needed)
-            RULES
+            content: @rules
           },
           { role: "user", content: @content }
         ],
