@@ -3,6 +3,6 @@ FactoryBot.define do
     title { Faker::Book.title }
     summary { Faker::Lorem.sentence }
     content { Faker::Lorem.paragraph }
-    published_at { Time.zone.now }
+    sources { Faker::Lorem.paragraph }
   end
 end

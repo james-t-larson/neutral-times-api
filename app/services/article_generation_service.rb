@@ -22,10 +22,6 @@ class ArticleGenerationService
   end
 
   def save_article(title, content)
-    content
-    # Article.create!(
-    #   title: title,
-    #   content: content,
-    # )
+    Article.create!(content[:article]).save!
   end
 end

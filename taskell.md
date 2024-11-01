@@ -1,11 +1,10 @@
 ## To Do
 
 - Should generate articles at noon and midnight
+- Add something so that it get politcial news in the news api integration
+- Write tests for generation service
 - Update api dog
 - Create Feature Spec, use github docs.
-- Write tests for generation service
-- Add something so that it get politcial news in the news api integration
-- Integrate with fact checking assistant or another fact checking method
 - Github actions should build on merge to main
 - Update README with postgres start info
 - Write down some kind of roadmap.
@@ -18,10 +17,16 @@
 - Integrate with some kind of plagarism checker
     > Need to make sure that these are effective.
     > Can use the responses from this as a way to train the assistant with fine tuning.
+- Check if the sources are real. Use fine tuning. and the Fact checker to train the assistant
+- The default route is broken
 
 ## Doing
 
 - Should generate articles from GPT and store them in the DB
+    * [x] Add validations for all columns
+    * [x] Make sure that sources is in the endpoint
+    * [x] Add sources to the tests
+    * [x] Remove published at from the tests
 
 ## Done
 

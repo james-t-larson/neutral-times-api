@@ -17,10 +17,10 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     assert_equal @article.id, article_data["id"]
     assert_equal @article.title, article_data["title"]
     assert_equal @article.summary, article_data["summary"]
-    assert_equal @article.published_at.as_json, article_data["published_at"]
     assert_equal @article.created_at.as_json, article_data["created_at"]
     assert_equal @article.updated_at.as_json, article_data["updated_at"]
     assert_equal @article.content.as_json, article_data["content"]
+    assert_equal @article.sources.as_json, article_data["sources"]
   end
 
   test "should show article with correct content" do
@@ -32,10 +32,10 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     assert_equal @article.id, json_response["id"]
     assert_equal @article.title, json_response["title"]
     assert_equal @article.summary, json_response["summary"]
-    assert_equal @article.published_at.as_json, json_response["published_at"]
     assert_equal @article.created_at.as_json, json_response["created_at"]
     assert_equal @article.updated_at.as_json, json_response["updated_at"]
     assert_equal @article.content.as_json, json_response["content"]
+    assert_equal @article.sources.as_json, json_response["sources"]
   end
 
   test "should return not found for invalid article id" do
