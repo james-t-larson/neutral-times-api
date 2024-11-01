@@ -150,6 +150,8 @@ GEM
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
     json (2.7.4)
+    json-schema (5.0.1)
+      addressable (~> 2.8)
     language_server-protocol (3.17.0.3)
     logger (1.6.1)
     loofah (2.23.1)
@@ -353,6 +355,7 @@ DEPENDENCIES
   httparty
   importmap-rails
   jbuilder
+  json-schema
   overcommit
   pg (~> 1.1)
   puma (>= 5.0)

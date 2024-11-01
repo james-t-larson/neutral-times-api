@@ -1,4 +1,4 @@
-class NewsApi
+class NewsApiClient
   include HTTParty
   base_uri "https://newsapi.org/v2"
 

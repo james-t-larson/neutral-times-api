@@ -1,9 +1,9 @@
 require "test_helper"
 
-class NewsApiTest < Minitest::Test
+class NewsApiClientTest < Minitest::Test
   def setup
     @api_key = "test_api_key"
-    @client = NewsApi.new(@api_key)
+    @client = NewsApiClient.new(@api_key)
   end
 
   def test_fetch_top_headlines
