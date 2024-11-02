@@ -6,6 +6,8 @@ class OpenaiClient
   include HTTParty
   base_uri "https://api.openai.com"
 
+  class ResponseValidationError < StandardError; end
+
   COMPLETIONS_ROUTE = "/v1/chat/completions"
 
   RESPONSE_SCHEMA = {
@@ -57,8 +59,8 @@ class OpenaiClient
       body: request_payload(headline).to_json
     )
 
-    article = response["choices"].first["message"]["content"]
-    JSON.parse(article, symbolize_names: true)
+    article_data = JSON.parse(response["choices"].first["message"]["content"], symbolize_names: true)
+    validate_response(article_data)
   end
 
   private
@@ -130,17 +132,10 @@ class OpenaiClient
     TEXT
   end
 
-  # TODO: Needs to be improved, not needed for MVP
   def validate_response(data)
-    JSON::Validator.validate!(RESPONSE_SCHEMA, data)
-    data["article"]
+    JSON::Validator.validate!(RESPONSE_SCHEMA[:schema], data)
+    data
   rescue JSON::Schema::ValidationError => e
-    puts "Schema validation failed: #{e.message}"
-  end
-
-  def handle_error(response)
-    error_message = response.parsed_response["error"]["message"] rescue "Unknown error"
-    puts "Request failed with status #{response.code}: #{error_message}"
-    nil
+    raise ResponseValidationError, "Schema validation failed: #{e.message}"
   end
 end

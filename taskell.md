@@ -1,15 +1,5 @@
-## To Do
+## Long-Term Goals
 
-- Should generate articles at noon and midnight
-- Add something so that it get politcial news in the news api integration
-- Write tests for generation service
-- Update api dog
-- Create Feature Spec, use github docs.
-- Github actions should build on merge to main
-- Update README with postgres start info
-- Write down some kind of roadmap.
-- Link taskell and the github project
-- Implment Basic authentication if toggled on. use env vars
 - Integrate with GDELT
     > The GDELT docs can be found here: https://blog.gdeltproject.org/gdelt-doc-2-0-api-debuts/Thjq
 - Integrate with a fact checker
@@ -19,6 +9,18 @@
     > Can use the responses from this as a way to train the assistant with fine tuning.
 - Check if the sources are real. Use fine tuning. and the Fact checker to train the assistant
 - The default route is broken
+
+## To Do
+
+- Write tests for the Article model
+- Write ArticleGenerationService tests. Should be an integration test
+- Create Feature Spec, use github docs?
+- Github actions should build on merge to main
+- Link taskell and the github project
+- Implment Basic authentication if toggled on. use env vars
+- Check if the sources are real. Use fine tuning. and the Fact checker to train the assistant
+- The default route is broken
+- Update api dog
 
 ## Doing
 
@@ -44,3 +46,10 @@
     * [x] Make sure that sources is in the endpoint
     * [x] Add sources to the tests
     * [x] Remove published at from the tests
+- Write tests for open ai generation service
+- Should generate articles at noon and midnight
+- Make sure that news api tests still work
+- Add something so that it get politcial news in the news api integration
+- Should write 5 articles
+- Update README with postgres start info
+- Write down some kind of roadmap.

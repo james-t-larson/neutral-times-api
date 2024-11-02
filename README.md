@@ -12,7 +12,12 @@
 - [Project Setup with Docker](docs/project-setup-with-docker.md)
 - [Configuration](#configuration)
 - [API Endpoints](#api-endpoints)
+
+---
+
+## Additional Resources
 - [Media Fairness and Balance Guidelines](docs/media-fairness-guidelines.md)
+- [Upcoming Changes and Roadmap](taskell.md)
 
 ---
 
@@ -31,9 +36,35 @@
     bundle install
     ```
 
-3. **Set up the database**:
+3. **Set up PostgreSQL**:
 
-    Make sure you have PostgreSQL installed, then run:
+    Make sure you have PostgreSQL installed. If not, you can install it on Manjaro with:
+
+    ```bash
+    sudo pacman -S postgresql 
+    ```
+
+    **Initialize the PostgreSQL Database** (if this is your first time setting it up):
+
+    ```bash
+    sudo -iu postgres initdb --locale=en_US.UTF-8 -D /var/lib/postgres/data
+    ```
+
+    **Start the PostgreSQL Service**:
+
+    ```bash
+    sudo systemctl start postgresql
+    ```
+
+    **Enable PostgreSQL to Start on Boot** (recommended):
+
+    ```bash
+    sudo systemctl enable postgresql
+    ```
+
+4. **Create the application database**:
+
+    Run the following commands to set up the database:
 
     ```bash
     rails db:create
@@ -41,43 +72,27 @@
     rails db:seed
     ```
 
-4. **Set up environment variables**:
+5. **Set up secrets**:
 
-    You’ll need an OpenAI API key to power the GPT-based generation. Create a `.env` file:
+    TODO
 
-    ```bash
-    touch .env
-    ```
-
-    Add the following to your `.env` file:
-
-    ```bash
-    OPENAI_API_KEY=your-openai-api-key
-    ```
-
-5. **Start the Rails server**:
+6. **Start the Rails server**:
 
     ```bash
     rails server
     ```
-
 ---
 
 ## API Endpoints
 
-### GET /stories
+### GET /articles
 
 Fetch all stories, or filter by a specific `id`.
-
-#### Request Parameters:
-| Name    | Type   | Required | Description                   |
-|---------|--------|----------|-------------------------------|
-| `id`    | string | no       | Filter by specific story ID    |
 
 #### Example Request:
 
 ```bash
-GET /stories?id=1
+GET /articles/1
 ```
 
 #### Example Response:
