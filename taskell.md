@@ -1,11 +1,9 @@
 ## To Do
 
-- Add something so that it get politcial news in the news api integration
 - Write tests for the Article model
-- Make sure that news api tests still work
+- Write ArticleGenerationService tests. Should be an integration test
 - Create Feature Spec, use github docs?
 - Github actions should build on merge to main
-- Update README with postgres start info
 - Write down some kind of roadmap.
 - Link taskell and the github project
 - Implment Basic authentication if toggled on. use env vars
@@ -46,3 +44,7 @@
     * [x] Remove published at from the tests
 - Write tests for open ai generation service
 - Should generate articles at noon and midnight
+- Make sure that news api tests still work
+- Add something so that it get politcial news in the news api integration
+- Should write 5 articles
+- Update README with postgres start info
