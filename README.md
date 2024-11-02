@@ -12,7 +12,12 @@
 - [Project Setup with Docker](docs/project-setup-with-docker.md)
 - [Configuration](#configuration)
 - [API Endpoints](#api-endpoints)
+
+---
+
+## Additional Resources
 - [Media Fairness and Balance Guidelines](docs/media-fairness-guidelines.md)
+- [Upcoming Changes and Roadmap](taskell.md)
 
 ---
 
