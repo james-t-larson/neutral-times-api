@@ -1,10 +1,9 @@
 ## To Do
 
-- Should generate articles at noon and midnight
 - Add something so that it get politcial news in the news api integration
-- Write tests for generation service
-- Update api dog
-- Create Feature Spec, use github docs.
+- Write tests for the Article model
+- Make sure that news api tests still work
+- Create Feature Spec, use github docs?
 - Github actions should build on merge to main
 - Update README with postgres start info
 - Write down some kind of roadmap.
@@ -19,6 +18,7 @@
     > Can use the responses from this as a way to train the assistant with fine tuning.
 - Check if the sources are real. Use fine tuning. and the Fact checker to train the assistant
 - The default route is broken
+- Update api dog
 
 ## Doing
 
@@ -44,3 +44,5 @@
     * [x] Make sure that sources is in the endpoint
     * [x] Add sources to the tests
     * [x] Remove published at from the tests
+- Write tests for open ai generation service
+- Should generate articles at noon and midnight

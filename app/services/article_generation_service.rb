@@ -22,6 +22,8 @@ class ArticleGenerationService
   end
 
   def save_article(title, content)
-    Article.create!(content[:article]).save!
+    Article.create!(title: title, content: content)
+  rescue ActiveRecord::RecordInvalid => e
+    Rails.logger.error "Failed to save article: #{e.message}"
   end
 end

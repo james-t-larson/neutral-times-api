@@ -7,7 +7,6 @@ class NewsApiClientTest < Minitest::Test
   end
 
   def test_fetch_top_headlines
-    return
     stubbed_response = {
       status: "ok",
       totalResults: 10,
