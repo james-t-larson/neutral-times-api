@@ -1,13 +1,16 @@
 ## Long-Term Goals
 
-- Integrate with GDELT
-    > The GDELT docs can be found here: https://blog.gdeltproject.org/gdelt-doc-2-0-api-debuts/Thjq
 - Integrate with a fact checker
     > Can use the responses from this as a way to train the assistant with fine tuning.
+- Integrate with some kind of source validation tool
+    > Need to make sure that GPT isn't providing fake sources. Can also notify the user that the source might be biased
+- Add event search
+    > If no similar events are found it should write one.
+- Integrate with GDELT
+    > The GDELT docs can be found here: https://blog.gdeltproject.org/gdelt-doc-2-0-api-debuts/Thjq
 - Integrate with some kind of plagarism checker
     > Need to make sure that these are effective.
     > Can use the responses from this as a way to train the assistant with fine tuning.
-- Integrate with some kind of reputable source checker.
 - User Profiles need to be defined
     > Sessions, Preferences, and so on need to be defined
 
