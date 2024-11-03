@@ -1,20 +1,22 @@
 ## Long-Term Goals
 
-- Integrate with GDELT
-    > The GDELT docs can be found here: https://blog.gdeltproject.org/gdelt-doc-2-0-api-debuts/Thjq
 - Integrate with a fact checker
     > Can use the responses from this as a way to train the assistant with fine tuning.
+- Integrate with some kind of source validation tool
+    > Need to make sure that GPT isn't providing fake sources. Can also notify the user that the source might be biased
+- Add event search
+    > If no similar events are found it should write one.
+- Integrate with GDELT
+    > The GDELT docs can be found here: https://blog.gdeltproject.org/gdelt-doc-2-0-api-debuts/Thjq
 - Integrate with some kind of plagarism checker
     > Need to make sure that these are effective.
     > Can use the responses from this as a way to train the assistant with fine tuning.
-- Check if the sources are real. Use fine tuning. and the Fact checker to train the assistant
-- The default route is broken
+- User Profiles need to be defined
+    > Sessions, Preferences, and so on need to be defined
 
 ## To Do
 
-- Write tests for the Article model
 - Write ArticleGenerationService tests. Should be an integration test
-- Create Feature Spec, use github docs?
 - Github actions should build on merge to main
 - Link taskell and the github project
 - Implment Basic authentication if toggled on. use env vars
@@ -53,3 +55,5 @@
 - Should write 5 articles
 - Update README with postgres start info
 - Write down some kind of roadmap.
+- Write tests for the Article model
+- Create Feature Spec, use github docs?

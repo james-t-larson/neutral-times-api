@@ -2,10 +2,14 @@
 
 **Neutral News Gen** is an automated platform that uses AI (powered by GPT) to gather and generate unbiased news articles based on the latest events. The system queries online sources every 12 hours to create dynamic, neutral news stories.
 
+---
+
 ## Features
 - **AI-powered content generation**: Uses GPT to generate news articles from real-time event data.
 - **Real-time updates**: Automatically fetches new information every 12 hours and generates new stories.
 - **REST API**: Provides an API to query the stories and associated content.
+
+---
 
 ## Table of Contents
 - [Installation](#installation)
@@ -16,6 +20,7 @@
 ---
 
 ## Additional Resources
+- [MVP Feature Spec](docs/mvp-feature-spec.md)
 - [Media Fairness and Balance Guidelines](docs/media-fairness-guidelines.md)
 - [Upcoming Changes and Roadmap](taskell.md)
 
