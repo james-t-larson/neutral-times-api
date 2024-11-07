@@ -2,11 +2,15 @@
 
 #### Prerequisites
 1. **Docker** and **Docker Compose** must be installed on your system.
-2. Generate SSL certificates in `config/certs/`:
+2. **Start Docker**: Ensure Docker is running before proceeding. You can start it with:
+   ```bash
+   sudo systemctl start docker
+   ```
+3. Generate SSL certificates in `config/certs/`:
    ```bash
    openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout config/certs/server.key -out config/certs/server.crt
    ```
-3. **Set Permissions** for SSL files to ensure accessibility:
+4. **Set Permissions** for SSL files to ensure accessibility:
    ```bash
    chmod -R 644 config/certs/
    ```
@@ -80,4 +84,3 @@ Use `bin/docker-clean-up` to stop, remove, and reset Docker images, volumes, and
 
 - **Cleaning Docker Environment**:
    Use `bin/docker-clean-up` to stop, remove, and reset Docker images, volumes, and cache.
-

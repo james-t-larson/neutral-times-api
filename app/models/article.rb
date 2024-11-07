@@ -4,5 +4,5 @@ class Article < ApplicationRecord
   validates :content, presence: true
   validates :sources, presence: true
 
-  default_scope { where(created_at: Time.now.beginning_of_day..Time.now.end_of_day) }
+  scope :published_today, -> { where(created_at: Time.now.beginning_of_day..Time.now.end_of_day) }
 end

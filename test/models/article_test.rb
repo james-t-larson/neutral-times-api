@@ -37,7 +37,7 @@ class ArticleTest < ActiveSupport::TestCase
     @article.save!
     old_article = create(:article, created_at: 1.day.ago)
 
-    articles_today = Article.all
+    articles_today = Article.published_today
 
     assert_includes articles_today, @article, "Today's article should be included"
     assert_not_includes articles_today, old_article, "Old article should not be included"

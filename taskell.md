@@ -6,26 +6,35 @@
     > Need to make sure that GPT isn't providing fake sources. Can also notify the user that the source might be biased
 - Add event search
     > If no similar events are found it should write one.
-- Integrate with GDELT
+- Integrate with GDELT/NewApi.ai
     > The GDELT docs can be found here: https://blog.gdeltproject.org/gdelt-doc-2-0-api-debuts/Thjq
 - Integrate with some kind of plagarism checker
     > Need to make sure that these are effective.
     > Can use the responses from this as a way to train the assistant with fine tuning.
 - User Profiles need to be defined
     > Sessions, Preferences, and so on need to be defined
+- Images should mainly be sketches
 
 ## To Do
 
 - Write ArticleGenerationService tests. Should be an integration test
+- On start, it should check if thre are any articles for the day. If there are none, it should generate them
 - Github actions should build on merge to main
 - Link taskell and the github project
 - Implment Basic authentication if toggled on. use env vars
 - Check if the sources are real. Use fine tuning. and the Fact checker to train the assistant
-- The default route is broken
 - Update api dog
+- Consider Adding pagination
 
 ## Doing
 
+- Add date range incase there is a problem with generation development will not be stalled
+    * [x] Update tests, switch defualt scope to published_today
+    * [x] Should be able to get todays articles with no params on the main route.
+    * [x] Should be able to get any days articles when param is passed
+    * [x] When requesting a specific article should no be limited todays articles
+    * [x] Should throw error if iso8601  is not used
+- The default route is broken
 
 ## Done
 
