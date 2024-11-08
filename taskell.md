@@ -1,13 +1,21 @@
 ## Long-Term Goals
 
+- Integrate with the Event Registray
+    * [ ] Get top articles from Articles endpoint
+    * [ ] Check for duplicates
+    * [ ] Scrape for content
+    * [ ] Save content as events and articles related to events
 - Integrate with a fact checker
     > Can use the responses from this as a way to train the assistant with fine tuning.
 - Integrate with some kind of source validation tool
     > Need to make sure that GPT isn't providing fake sources. Can also notify the user that the source might be biased
 - Add event search
     > If no similar events are found it should write one.
-- Integrate with GDELT/NewApi.ai
-    > The GDELT docs can be found here: https://blog.gdeltproject.org/gdelt-doc-2-0-api-debuts/Thjq
+- Integrate with GDELT
+    > The GDELT docs can be found here: https://gdelt.github.io/#api=doc&query=election&sourcecountry=US&sourcelang=eng&contentmode=ToneChart&maxrecords=75&sort=ToneAsc&format=html&timespan=1dasdfasdfaaqq q
+    * [ ] Use the tone mode and filter out anything that is outside 1 to -1
+    * [ ] There are duplicates, remove duplicates
+    * [ ] Sort by ToneAsc
 - Integrate with some kind of plagarism checker
     > Need to make sure that these are effective.
     > Can use the responses from this as a way to train the assistant with fine tuning.
