@@ -6,7 +6,7 @@ class NewsApiClient
     @api_key = api_key || Rails.application.credentials.dig(:news_api, :api_key)
   end
 
-  def fetch_top_headlines(country: "us", category: nil)
+  def fetch_top_headlines(country: "us", category: "business")
     options = {
       query: {
         country: country,

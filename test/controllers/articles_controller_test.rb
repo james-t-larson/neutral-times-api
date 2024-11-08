@@ -38,6 +38,16 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     assert_equal @article.sources.as_json, json_response["sources"]
   end
 
+  test "should return invalid date format if iso8601 is not used" do
+    get articles_url(date: "2024-17-04")
+
+    assert_response :unprocessable_entity
+
+    json_response = JSON.parse(response.body)
+
+    assert_equal "Invalid date format. Please provide the date in ISO 8601 format (e.g., '2023-11-07T15:30:00Z' or '2023-11-07') (eg. YYYY-MM-DD).", json_response["error"]
+  end
+
   test "should return not found for invalid article id" do
     get article_url(id: "invalid-id")
 

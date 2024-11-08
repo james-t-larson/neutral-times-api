@@ -11,7 +11,7 @@
 #
 # As a rule of thumb, increasing the number of threads will increase how much
 # traffic a given process can handle (throughput), but due to CRuby's
-# Global VM Lock (GVL) it has diminishing returns and will degraderthe
+# Global VM Lock (GVL) it has diminishing returns and will degrade the
 # response time (latency) of the application.
 #
 # The default is set to 3 threads as it's deemed a decent compromise between
@@ -23,15 +23,8 @@
 threads_count = ENV.fetch("RAILS_MAX_THREADS", 3)
 threads threads_count, threads_count
 
-port ENV.fetch("PORT", 3000) unless ENV["RAILS_ENV"] == "production"
-
-if ENV["RAILS_ENV"] == "production"
-  ssl_bind "0.0.0.0", "3000", {
-    key: "config/certs/server.key",
-    cert: "config/certs/server.crt",
-    verify_mode: "none"
-  }
-end
+# Specifies the `port` that Puma will listen on to receive requests; default is 3000.
+port ENV.fetch("PORT", 3000)
 
 # Allow puma to be restarted by `bin/rails restart` command.
 plugin :tmp_restart
