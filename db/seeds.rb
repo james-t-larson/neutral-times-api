@@ -12,17 +12,17 @@
 Article.destroy_all
 
 article1 = Article.create!(
-  title: 'Breaking News: Ruby on Rails Rocks!',
-  summary: 'A detailed article about how Ruby on Rails is a powerful web development framework.',
-  content: 'TESTING',
-  sources: 'TESTING'
+  title: "Breaking News: Ruby on Rails Rocks!",
+  summary: "A detailed article about how Ruby on Rails is a powerful web development framework.",
+  content: "TESTING",
+  sources: "TESTING"
 )
 
 article2 = Article.create!(
-  title: 'The Future of AI in Web Development',
-  summary: 'Exploring how AI is changing the web development landscape, with practical examples.',
-  content: 'TESTING',
-  sources: 'TESTING'
+  title: "The Future of AI in Web Development",
+  summary: "Exploring how AI is changing the web development landscape, with practical examples.",
+  content: "TESTING",
+  sources: "TESTING"
 )
 
 puts "Seed data successfully created!"

@@ -22,27 +22,25 @@
 - User Profiles need to be defined
     > Sessions, Preferences, and so on need to be defined
 - Images should mainly be sketches
+- If a module, controller, or anything testable is changed, it should require a change without explicitly ignoring the requirment.
 
 ## To Do
 
+- Link taskell and the github project
 - Write ArticleGenerationService tests. Should be an integration test
 - On start, it should check if thre are any articles for the day. If there are none, it should generate them
 - Github actions should build on merge to main
-- Link taskell and the github project
 - Implment Basic authentication if toggled on. use env vars
 - Check if the sources are real. Use fine tuning. and the Fact checker to train the assistant
-- Update api dog
 - Consider Adding pagination
 
 ## Doing
 
-- Add date range incase there is a problem with generation development will not be stalled
-    * [x] Update tests, switch defualt scope to published_today
-    * [x] Should be able to get todays articles with no params on the main route.
-    * [x] Should be able to get any days articles when param is passed
-    * [x] When requesting a specific article should no be limited todays articles
-    * [x] Should throw error if iso8601  is not used
-- The default route is broken
+- Throw away api dog, automate and enforce documentation
+    * [ ] Documentation should be auto generated
+    * [ ] Documentation should be in markdown accessible from the read me
+    * [ ] Use SwaggerUI to host a site that other developers can use to get docs and playwith the project
+    * [ ] Documentation should be  enforced in some way
 
 ## Done
 
@@ -74,3 +72,10 @@
 - Write down some kind of roadmap.
 - Write tests for the Article model
 - Create Feature Spec, use github docs?
+- Add date range incase there is a problem with generation development will not be stalled
+    * [x] Update tests, switch defualt scope to published_today
+    * [x] Should be able to get todays articles with no params on the main route.
+    * [x] Should be able to get any days articles when param is passed
+    * [x] When requesting a specific article should no be limited todays articles
+    * [x] Should throw error if iso8601  is not used
+- The default route is broken
