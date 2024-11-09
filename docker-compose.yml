@@ -12,8 +12,6 @@ services:
       # - redis
     volumes:
       - .:/app
-      - ./config/certs/server.key:/app/config/certs/server.key
-      - ./config/certs/server.crt:/app/config/certs/server.crt
 
   db:
     image: postgres

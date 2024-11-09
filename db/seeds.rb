@@ -11,18 +11,18 @@
 # # Clear existing data (optional, if you want to start fresh)
 Article.destroy_all
 
-article1 = article.create!(
+article1 = Article.create!(
   title: 'Breaking News: Ruby on Rails Rocks!',
   summary: 'A detailed article about how Ruby on Rails is a powerful web development framework.',
-  published_at: Time.now,
-  content: 'TESTING'
+  content: 'TESTING',
+  sources: 'TESTING'
 )
 
-article2 = article.create!(
+article2 = Article.create!(
   title: 'The Future of AI in Web Development',
   summary: 'Exploring how AI is changing the web development landscape, with practical examples.',
-  published_at: Time.now,
-  content: 'TESTING'
+  content: 'TESTING',
+  sources: 'TESTING'
 )
 
 puts "Seed data successfully created!"
