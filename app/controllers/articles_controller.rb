@@ -12,7 +12,7 @@ class ArticlesController < ApplicationController
     if params[:date]
       validate_date_format
       date = DateTime.iso8601(params[:date])
-      articles = Article.where(created_at: date.beginning_of_day..date.end_of_day)
+      articles = Article.published_bettween(date, date)
     else
       articles = Article.published_today
     end

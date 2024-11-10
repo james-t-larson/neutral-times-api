@@ -26,20 +26,14 @@
 
 ## To Do
 
-- Throw away api dog, automate and enforce documentation
-    * [x] Documentation should be auto generated, use rswag
-    * [ ] Documentation should be in markdown accessible from the read me, use api blue print and some kind of conversion software
-    * [x] Use SwaggerUI to host a site that other developers can use to get docs and playwith the project
-    * [x] Documentation should be  enforced in some way, use git hooks
+- On start, it should check if thre are any articles for the day. If there are none, it should generate them
 - Link taskell and the github project
 - Enforce SSL in lightsail instance
-- Write ArticleGenerationService tests. Should be an integration test
-- On start, it should check if thre are any articles for the day. If there are none, it should generate them
 - Github actions should build on merge to main
 - Implment Basic authentication if toggled on. use env vars
 - Check if the sources are real. Use fine tuning. and the Fact checker to train the assistant
 - Consider Adding pagination
-- Add Lazydocker
+- Add Lazydocker to nvim
 - Prod should not be using seed data
 
 ## Doing
@@ -83,3 +77,7 @@
     * [x] When requesting a specific article should no be limited todays articles
     * [x] Should throw error if iso8601  is not used
 - The default route is broken
+- Throw away api dog, automate and enforce documentation
+    * [x] Documentation should be auto generated, use rswag
+    * [x] Use SwaggerUI to host a site that other developers can use to get docs and playwith the project
+    * [x] Documentation should be  enforced in some way, use git hooks
