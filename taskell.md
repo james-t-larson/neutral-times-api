@@ -26,6 +26,11 @@
 
 ## To Do
 
+- Throw away api dog, automate and enforce documentation
+    * [x] Documentation should be auto generated, use rswag
+    * [ ] Documentation should be in markdown accessible from the read me, use api blue print and some kind of conversion software
+    * [x] Use SwaggerUI to host a site that other developers can use to get docs and playwith the project
+    * [x] Documentation should be  enforced in some way, use git hooks
 - Link taskell and the github project
 - Enforce SSL in lightsail instance
 - Write ArticleGenerationService tests. Should be an integration test
@@ -39,12 +44,7 @@
 
 ## Doing
 
-- Throw away api dog, automate and enforce documentation
-    * [x] Documentation should be auto generated, use rswag
-    * [ ] Documentation should be in markdown accessible from the read me, use api blue print and some kind of conversion software
-    * [x] Use SwaggerUI to host a site that other developers can use to get docs and playwith the project
-    * [x] Documentation should be  enforced in some way, use git hooks
-    * [ ] Move all tests over to rspec
+- Complete tests for article and model controller
 
 ## Done
 

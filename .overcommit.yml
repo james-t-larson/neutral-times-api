@@ -24,9 +24,10 @@ PreCommit:
     exclude:
       - '.yml'  
 
-  Minitest:
+  RSpec:
     enabled: true
-    command: ['bundle', 'exec', 'rails', 'test']
+    command: ['bundle', 'exec', 'rspec']
+    description: 'Running RSpec tests'
 
 #  TrailingWhitespace:
 #    enabled: true

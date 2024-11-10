@@ -1,6 +1,4 @@
 class ArticlesController < ApplicationController
-  before_action :validate_date_format, only: :index
-
   def show
     param! :id, Integer
 
@@ -12,6 +10,7 @@ class ArticlesController < ApplicationController
     param! :date, String
 
     if params[:date]
+      validate_date_format
       date = DateTime.iso8601(params[:date])
       articles = Article.where(created_at: date.beginning_of_day..date.end_of_day)
     else

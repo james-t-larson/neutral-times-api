@@ -101,7 +101,7 @@ RSpec.describe 'Articles API', type: :request do
       end
 
       response '404', 'article not found' do
-        let(:id) { 'invalid-id' }
+        let(:id) { -1 }
 
         schema type: :object,
                properties: {
