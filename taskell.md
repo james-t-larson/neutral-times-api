@@ -27,20 +27,24 @@
 ## To Do
 
 - Link taskell and the github project
+- Enforce SSL in lightsail instance
 - Write ArticleGenerationService tests. Should be an integration test
 - On start, it should check if thre are any articles for the day. If there are none, it should generate them
 - Github actions should build on merge to main
 - Implment Basic authentication if toggled on. use env vars
 - Check if the sources are real. Use fine tuning. and the Fact checker to train the assistant
 - Consider Adding pagination
+- Add Lazydocker
+- Prod should not be using seed data
 
 ## Doing
 
 - Throw away api dog, automate and enforce documentation
-    * [ ] Documentation should be auto generated
-    * [ ] Documentation should be in markdown accessible from the read me
-    * [ ] Use SwaggerUI to host a site that other developers can use to get docs and playwith the project
-    * [ ] Documentation should be  enforced in some way
+    * [x] Documentation should be auto generated, use rswag
+    * [ ] Documentation should be in markdown accessible from the read me, use api blue print and some kind of conversion software
+    * [x] Use SwaggerUI to host a site that other developers can use to get docs and playwith the project
+    * [x] Documentation should be  enforced in some way, use git hooks
+    * [ ] Move all tests over to rspec
 
 ## Done
 
