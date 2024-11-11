@@ -23,7 +23,6 @@
 
 ## To Do
 
-- On start, it should check if thre are any articles for the day. If there are none, it should generate them
 - Link taskell and the github project
 - Enforce SSL in lightsail instance
 - Github actions should build on merge to main
@@ -78,3 +77,4 @@
     * [x] Documentation should be auto generated, use rswag
     * [x] Use SwaggerUI to host a site that other developers can use to get docs and playwith the project
     * [x] Documentation should be  enforced in some way, use git hooks
+- On start, it should check if thre are any articles for the day. If there are none, it should generate them
