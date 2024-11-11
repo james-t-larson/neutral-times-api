@@ -7,22 +7,19 @@
     * [ ] Save content as events and articles related to events
 - Integrate with a fact checker
     > Can use the responses from this as a way to train the assistant with fine tuning.
+    * [ ] Learn about different fact checkers that I can integrate with
 - Integrate with some kind of source validation tool
     > Need to make sure that GPT isn't providing fake sources. Can also notify the user that the source might be biased
-- Add event search
-    > If no similar events are found it should write one.
-- Integrate with GDELT
-    > The GDELT docs can be found here: https://gdelt.github.io/#api=doc&query=election&sourcecountry=US&sourcelang=eng&contentmode=ToneChart&maxrecords=75&sort=ToneAsc&format=html&timespan=1dasdfasdfaaqq q
-    * [ ] Use the tone mode and filter out anything that is outside 1 to -1
-    * [ ] There are duplicates, remove duplicates
-    * [ ] Sort by ToneAsc
 - Integrate with some kind of plagarism checker
     > Need to make sure that these are effective.
     > Can use the responses from this as a way to train the assistant with fine tuning.
 - User Profiles need to be defined
-    > Sessions, Preferences, and so on need to be defined
+    > Sessions are needed for invites, no need for preferences for mvp
+- Add event search
+    > If no similar events are found it should write one.
+- Use Git integration with SimpleCov to ensure that any change has tests written
+    > simplecov-icov has a tool that can check tests for only changed files. this should ensure nearly 100% test coverage and catch anything that isn't tested
 - Images should mainly be sketches
-- If a module, controller, or anything testable is changed, it should require a change without explicitly ignoring the requirment.
 
 ## To Do
 
@@ -31,14 +28,14 @@
 - Enforce SSL in lightsail instance
 - Github actions should build on merge to main
 - Implment Basic authentication if toggled on. use env vars
-- Check if the sources are real. Use fine tuning. and the Fact checker to train the assistant
-- Consider Adding pagination
 - Add Lazydocker to nvim
 - Prod should not be using seed data
 
 ## Doing
 
 - Complete tests for article and model controller
+    * [ ] Complete edge case tests for model
+    * [ ] 
 
 ## Done
 

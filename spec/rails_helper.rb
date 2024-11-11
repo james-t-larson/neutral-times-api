@@ -50,6 +50,10 @@ RSpec.configure do |config|
   # Allows you to use FactoryBot methods directly, like `create(:article)`
   config.include FactoryBot::Syntax::Methods
 
+  config.before(:each, type: :controller) do
+    request.headers['Accept'] = 'application/json'
+  end
+
   # Ensure that fixture_path is only set for ActiveSupport::TestCase, if needed
   # if defined?(ActiveSupport::TestCase)
   #   ActiveSupport::TestCase.fixture_path = "#{::Rails.root}/spec/fixtures"
