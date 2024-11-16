@@ -49,14 +49,14 @@ class OpenaiClient
     @api_key = api_key || Rails.application.credentials.dig(:openai, :api_key)
   end
 
-  def generate_article(headline)
+  def generate_article(article)
     response = self.class.post(
       COMPLETIONS_ROUTE,
       headers: {
         "Authorization" => "Bearer #{@api_key}",
         "Content-Type" => "application/json"
       },
-      body: request_payload(headline).to_json
+      body: request_payload(article).to_json
     )
 
     article_data = JSON.parse(response["choices"].first["message"]["content"], symbolize_names: true)

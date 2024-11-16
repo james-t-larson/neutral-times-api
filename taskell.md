@@ -1,10 +1,5 @@
 ## Long-Term Goals
 
-- Integrate with the Event Registray
-    * [ ] Get top articles from Articles endpoint
-    * [ ] Check for duplicates
-    * [ ] Scrape for content
-    * [ ] Save content as events and articles related to events
 - Integrate with a fact checker
     > Can use the responses from this as a way to train the assistant with fine tuning.
     * [ ] Learn about different fact checkers that I can integrate with
@@ -23,18 +18,22 @@
 
 ## To Do
 
+- Complete Tests for the Article Controller
+    * [ ] Should not be able to request articles for the future
 - Link taskell and the github project
-- Enforce SSL in lightsail instance
 - Github actions should build on merge to main
-- Implment Basic authentication if toggled on. use env vars
 - Add Lazydocker to nvim
 - Prod should not be using seed data
+- Update swagger so that it points at the correct domain depending on the env
+    * [ ] Need to get around basic auth in dev somehow
+    * [ ] 
+- Complete Tests for OpenAi Service
+- Complete Tests for Event Registry
+- Complete Tests for Generation Service
 
 ## Doing
 
-- Complete tests for article and model controller
-    * [ ] Complete edge case tests for model
-    * [ ] 
+- Get Lazydocker working in AWS instance. Can't even get into rails c without googling
 
 ## Done
 
@@ -78,3 +77,12 @@
     * [x] Use SwaggerUI to host a site that other developers can use to get docs and playwith the project
     * [x] Documentation should be  enforced in some way, use git hooks
 - On start, it should check if thre are any articles for the day. If there are none, it should generate them
+- Complete tests for article and model controller
+    * [ ] Complete edge case tests for model
+    * [ ] 
+- Enforce SSL in lightsail instance
+- Implment Basic authentication if toggled on. use env vars
+- Integrate with the Event Registray
+    * [x] Get top articles from Articles endpoint
+    * [x] Pass article content into chat gpt to rewrite
+    * [x] Add api key to secrets

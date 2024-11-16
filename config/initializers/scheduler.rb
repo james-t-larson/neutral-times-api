@@ -14,4 +14,3 @@ Rails.application.config.after_initialize do
     gen.generate_and_save_articles
   end
 end
-
