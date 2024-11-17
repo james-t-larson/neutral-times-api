@@ -30,10 +30,14 @@
 - Complete Tests for OpenAi Service
 - Complete Tests for Event Registry
 - Complete Tests for Generation Service
+- Get Lazydocker working in AWS instance. Can't even get into rails c without googling
+- Move prompt to database
 
 ## Doing
 
-- Get Lazydocker working in AWS instance. Can't even get into rails c without googling
+- Prompt should be changed to reduce emotional language.
+    * [ ] The current prompt have content that makes it easy to detect as an ai. 
+    * [ ] The old prompt is to complex. Reduce complexity
 
 ## Done
 

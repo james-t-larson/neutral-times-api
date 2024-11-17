@@ -14,7 +14,7 @@ class EventRegistryClient
             "$and": [
               {
                 "$or": [
-                  { "categoryUri": "dmoz/Business" },
+                  { "categoryUri": "news/Business" },
                   { "categoryUri": "news/Politics" }
                 ]
               },
@@ -25,7 +25,9 @@ class EventRegistryClient
           "$filter": {
             startSourceRankPercentile: 0,
             endSourceRankPercentile: 10,
-            isDuplicate: "skipDuplicates"
+            isDuplicate: "skipDuplicates",
+            minSentiment: -0.2,
+            maxSentiment: 0.2
           }
         },
         recentActivityArticlesMaxArticleCount: 10,
