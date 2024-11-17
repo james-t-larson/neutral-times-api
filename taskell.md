@@ -3,11 +3,11 @@
 - Integrate with a fact checker
     > Can use the responses from this as a way to train the assistant with fine tuning.
     * [ ] Learn about different fact checkers that I can integrate with
-- Integrate with some kind of source validation tool
-    > Need to make sure that GPT isn't providing fake sources. Can also notify the user that the source might be biased
 - Integrate with some kind of plagarism checker
     > Need to make sure that these are effective.
     > Can use the responses from this as a way to train the assistant with fine tuning.
+- Integrate with Mozilla TTS
+    > I would like the news read to me. Check out Mozilla TTS and see if it's good enough for this
 - User Profiles need to be defined
     > Sessions are needed for invites, no need for preferences for mvp
 - Add event search
@@ -15,6 +15,8 @@
 - Use Git integration with SimpleCov to ensure that any change has tests written
     > simplecov-icov has a tool that can check tests for only changed files. this should ensure nearly 100% test coverage and catch anything that isn't tested
 - Images should mainly be sketches
+- Implement Custom Categories
+    > Custom Categories should be something before new categories suggestions 
 
 ## To Do
 
@@ -32,6 +34,8 @@
 - Complete Tests for Generation Service
 - Get Lazydocker working in AWS instance. Can't even get into rails c without googling
 - Move prompt to database
+- Persist database as a volume in the docker-compose file.
+    > This is the reason that the database is lost when docker-compose down is run
 
 ## Doing
 
