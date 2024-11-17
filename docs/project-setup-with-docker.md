@@ -28,17 +28,17 @@
 3. **Running Rails Commands**:
    For Rails commands, use:
    ```bash
-   sudo docker-compose run app <command>
+   sudo bin/rails
    ```
    Example:
    ```bash
-   sudo docker-compose run app rails db:seed
+   sudo bin/rails c
    ```
 
 4. **Start the App Container in Background**:
    To start a single app container in the background:
    ```bash
-   sudo docker run -d neutral-news-gen_app
+   sudo docker-compose up -d
    ```
 
 5. **Check All Containers (Running and Stopped)**:

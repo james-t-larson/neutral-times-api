@@ -36,13 +36,21 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 # Highlight the fine-grained location where an error occurred [https://github.com/ruby/error_highlight]
-gem "error_highlight", "0.6.0", platforms: [ :ruby ], require: true
+gem "error_highlight", "0.3.0", platforms: [ :ruby ], require: true
 
 gem "webmock", require: false
 
 gem "httparty"
 
 gem "json-schema"
+
+gem "rspec-rails", "6.1.1"
+
+gem "rswag"
+
+gem "rails_param"
+
+gem "shoulda-matchers", "~> 5.0"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -70,5 +78,3 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
-
-gem "ruby-openai"

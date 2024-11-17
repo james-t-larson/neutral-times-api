@@ -1,27 +1,26 @@
 class ArticleGenerationService
   def initialize
-    @aggregator_client ||= NewsApiClient.new
+    @aggregator_client ||= EventRegistryClient.new
     @generator_client ||= OpenaiClient.new
   end
 
-  def generate_and_save_articles(count = 5)
-    headlines = fetch_headlines(count)
+  def generate_and_save_articles
+    articles = fetch_articles()
 
-    headlines.each do |headline|
-      generated_content = generate_article_content(headline)
+    articles.each do |article|
+      generated_content = generate_article(article.to_s)
       save_article(generated_content)
     end
   end
 
   private
 
-  def fetch_headlines(count)
-    top_headlines = @aggregator_client.fetch_top_headlines(category: "business")
-    top_headlines["articles"].first(count).map { |article| article["title"] }
+  def fetch_articles
+    @aggregator_client.fetch_articles
   end
 
-  def generate_article_content(headline)
-    @generator_client.generate_article(headline)
+  def generate_article(article)
+    @generator_client.generate_article(article)
   end
 
   def save_article(content)

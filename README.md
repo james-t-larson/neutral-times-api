@@ -89,44 +89,67 @@
 ---
 
 ## API Endpoints
+### Version: v1
 
-### GET /articles
+### /articles
 
-Fetch all stories, or filter by a specific `id`.
+#### GET
+##### Summary:
 
-#### Example Request:
+Retrieves articles from today
 
-```bash
-GET /articles/1
-```
+##### Responses
 
-#### Example Response:
+| Code | Description |
+| ---- | ----------- |
+| 200 | articles found |
+
 
 ```json
 [
   {
-    "id": 1,
-    "title": "Breaking News: Ruby on Rails Rocks!",
-    "summary": "A detailed article about how Ruby on Rails is a powerful web development framework.",
-    "published_at": "2024-10-12T20:36:26.097Z",
-    "content": [
-      {
-        "id": 1,
-        "sub_title": "Introduction to Ruby on Rails",
-        "text": "Ruby on Rails is a server-side web application framework..."
-      }
-    ]
-  }
+    "id": 24,
+    "title": "Polymarket Speculator Profits $48M from Trump Bets: A Balanced Look",
+    "summary": "A deep dive into the recent Polymarket speculation sees one investor profiting substantially from betting on Donald Trump's election outcomes, as well as the broader implications and perspectives surrounding the event.",
+    "created_at": "2024-11-07T21:00:22.256Z",
+    "updated_at": "2024-11-07T21:00:22.256Z",
+    "content": "In recent developments, a significant player in the prediction market platform Polymarket has..."
+  },
 ]
+
 ```
 
-### Error Responses:
-| Status Code | Message                      |
-|-------------|------------------------------|
-| 400         | "Invalid parameter 'id'."    |
-| 404         | "Article not found."           |
-| 500         | "An unexpected error occurred." |
+### /articles/{id}
 
-For more details on API structure, refer to the API documentation in the project.
+#### GET
+##### Summary:
 
+Retrieves a specific article
 
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path | ID of the article | Yes | integer |
+
+##### Responses
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | article found |
+| 404 | article not found |
+
+##### Example Responses
+
+```json
+
+{
+"id": 24,
+"title": "Polymarket Speculator Profits $48M from Trump Bets: A Balanced Look",
+"summary": "A deep dive into the recent Polymarket speculation sees one investor profiting substantially from betting on Donald Trump's election outcomes, as well as the broader implications and perspectives surrounding the event.",
+"created_at": "2024-11-07T21:00:22.256Z",
+"updated_at": "2024-11-07T21:00:22.256Z",
+"content": "In recent developments, a significant player in the prediction market platform Polymarket has..."
+}
+
+```

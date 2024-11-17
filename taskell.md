@@ -1,48 +1,53 @@
 ## Long-Term Goals
 
-- Integrate with the Event Registray
-    * [ ] Get top articles from Articles endpoint
-    * [ ] Check for duplicates
-    * [ ] Scrape for content
-    * [ ] Save content as events and articles related to events
 - Integrate with a fact checker
     > Can use the responses from this as a way to train the assistant with fine tuning.
-- Integrate with some kind of source validation tool
-    > Need to make sure that GPT isn't providing fake sources. Can also notify the user that the source might be biased
-- Add event search
-    > If no similar events are found it should write one.
-- Integrate with GDELT
-    > The GDELT docs can be found here: https://gdelt.github.io/#api=doc&query=election&sourcecountry=US&sourcelang=eng&contentmode=ToneChart&maxrecords=75&sort=ToneAsc&format=html&timespan=1dasdfasdfaaqq q
-    * [ ] Use the tone mode and filter out anything that is outside 1 to -1
-    * [ ] There are duplicates, remove duplicates
-    * [ ] Sort by ToneAsc
+    * [ ] Learn about different fact checkers that I can integrate with
 - Integrate with some kind of plagarism checker
     > Need to make sure that these are effective.
     > Can use the responses from this as a way to train the assistant with fine tuning.
+- Integrate with Mozilla TTS
+    > I would like the news read to me. Check out Mozilla TTS and see if it's good enough for this
 - User Profiles need to be defined
-    > Sessions, Preferences, and so on need to be defined
+    > Sessions are needed for invites, no need for preferences for mvp
+- Add event search
+    > If no similar events are found it should write one.
+- Use Git integration with SimpleCov to ensure that any change has tests written
+    > simplecov-icov has a tool that can check tests for only changed files. this should ensure nearly 100% test coverage and catch anything that isn't tested
 - Images should mainly be sketches
+- Implement Custom Categories
+    > Custom Categories should be something before new categories suggestions 
+- Switch to an open source LLM
 
 ## To Do
 
-- Write ArticleGenerationService tests. Should be an integration test
-- On start, it should check if thre are any articles for the day. If there are none, it should generate them
-- Github actions should build on merge to main
+- Complete Tests for the Article Controller
+    > There are features and things that are not tested
+    * [ ] Should not be able to request articles for the future
+- Implment category filter to articles endpoint
+    > The user should be able to request business or political articles. 
+    * [ ] Should write 10 political and 10 business related articles
 - Link taskell and the github project
-- Implment Basic authentication if toggled on. use env vars
-- Check if the sources are real. Use fine tuning. and the Fact checker to train the assistant
-- Update api dog
-- Consider Adding pagination
+- Github actions should build on merge to main
+    > Tests are run locally and in develop before merge to main 
+- Add Lazydocker to nvim
+- Prod should not be using seed data
+- Update swagger so that it points at the correct domain depending on the env
+    * [ ] Need to get around basic auth in dev somehow
+    * [ ] 
+- Complete Tests for OpenAi Service
+- Complete Tests for Event Registry
+- Complete Tests for Generation Service
+- Get Lazydocker working in AWS instance. Can't even get into rails c without googling
+- Move prompt to database
+- Persist database as a volume in the docker-compose file.
+    > This is the reason that the database is lost when docker-compose down is run
 
 ## Doing
 
-- Add date range incase there is a problem with generation development will not be stalled
-    * [x] Update tests, switch defualt scope to published_today
-    * [x] Should be able to get todays articles with no params on the main route.
-    * [x] Should be able to get any days articles when param is passed
-    * [x] When requesting a specific article should no be limited todays articles
-    * [x] Should throw error if iso8601  is not used
-- The default route is broken
+- Prompt should be changed to reduce emotional language.
+    * [ ] The current prompt have content that makes it easy to detect as an ai. 
+    * [ ] The old prompt is to complex. Reduce complexity
 
 ## Done
 
@@ -74,3 +79,24 @@
 - Write down some kind of roadmap.
 - Write tests for the Article model
 - Create Feature Spec, use github docs?
+- Add date range incase there is a problem with generation development will not be stalled
+    * [x] Update tests, switch defualt scope to published_today
+    * [x] Should be able to get todays articles with no params on the main route.
+    * [x] Should be able to get any days articles when param is passed
+    * [x] When requesting a specific article should no be limited todays articles
+    * [x] Should throw error if iso8601  is not used
+- The default route is broken
+- Throw away api dog, automate and enforce documentation
+    * [x] Documentation should be auto generated, use rswag
+    * [x] Use SwaggerUI to host a site that other developers can use to get docs and playwith the project
+    * [x] Documentation should be  enforced in some way, use git hooks
+- On start, it should check if thre are any articles for the day. If there are none, it should generate them
+- Complete tests for article and model controller
+    * [ ] Complete edge case tests for model
+    * [ ] 
+- Enforce SSL in lightsail instance
+- Implment Basic authentication if toggled on. use env vars
+- Integrate with the Event Registray
+    * [x] Get top articles from Articles endpoint
+    * [x] Pass article content into chat gpt to rewrite
+    * [x] Add api key to secrets
