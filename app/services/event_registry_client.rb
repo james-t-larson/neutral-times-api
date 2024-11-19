@@ -14,30 +14,35 @@ class EventRegistryClient
             "$and": [
               {
                 "$or": [
-                  { "categoryUri": "news/Business" },
+                  { "categoryUri": "dmoz/Society/Politics" },
                   { "categoryUri": "news/Politics" }
                 ]
               },
               { "locationUri": "http://en.wikipedia.org/wiki/United_States" },
-              { "lang": "eng" }
+              {
+                "dateStart": Date.today.iso8601(),
+                "dateEnd": Date.today.iso8601(),
+                "lang": "eng"
+              }
             ]
           },
           "$filter": {
             startSourceRankPercentile: 0,
-            endSourceRankPercentile: 10,
+            endSourceRankPercentile: 20,
             isDuplicate: "skipDuplicates",
             minSentiment: -0.2,
             maxSentiment: 0.2
           }
         },
-        recentActivityArticlesMaxArticleCount: 10,
-        recentActivityArticlesUpdatesAfterMinsAgo: 720,
+        resultType: "recentActivityArticles",
+        recentActivityArticlesSortBy: "socialScore",
+        includeArticleDuplicateList: true,
         apiKey: @api_key
       }.to_json,
       headers: { "Content-Type" => "application/json" }
     }
 
-    resp = self.class.post("/minuteStreamArticles", options)
+    resp = self.class.post("/article/getArticles", options)
     resp["recentActivityArticles"]["activity"]
   end
 end
