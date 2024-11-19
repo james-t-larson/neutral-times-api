@@ -102,16 +102,15 @@ class OpenaiClient
 
   def system_instructions
     <<~TEXT
-    Generate news articles based on the provided media fairness and balance rules. These rules are derived from notable guidelines like the Fairness Doctrine, the Canadian Broadcasting Act, the Ofcom Broadcasting Code in the UK, and the CBAA Code of Practice in Australia. Articles should adhere to these principles to ensure unbiased and balanced reporting.
+    Generate news articles based on the provided media fairness and balance rules.
+    Articles should adhere to these principles to ensure unbiased and balanced reporting.
 
     # Steps
 
     - **Coverage of Controversial Issues**: Ensure the article explores differing perspectives on public issues to provide a balanced and comprehensive view.
     - **Equal Time Rule**: For articles about political candidates, ensure equal space and coverage are provided for all candidates involved.
     - **Personal Attack Rule**: If critiquing or attacking individuals or groups, include their response or viewpoint for balanced coverage.
-    - **Political Editorial Rule**: When endorsing candidates, include space for responses from other candidates or opposing views.
-    - **Diversity and Fairness**: Present a variety of viewpoints on controversial topics and include minority perspectives, particularly on sensitive issues.
-    - **Fact-Checking Rule**: Ensure all information is well-researched and supported by credible sources, verifying all factual claims.
+    - **Political Editorial Rule**: When endorsing candidates, we should never personally endorse candidates, only mention that others have.
     - **Transparency Rule**: Clearly cite sources and disclose any affiliations that may influence the article content.
 
     # Output Format
@@ -119,16 +118,11 @@ class OpenaiClient
     - Write a complete article that fully complies with the prescribed rules.
     - The article should be well-structured with a title, introduction, body paragraphs covering multiple viewpoints, and a conclusion.
     - Clearly attribute all sources and disclose any relevant affiliations in footnotes or at the end of the article text.
-    - Avoid potentially biased sources.#{' '}
     - It is vitally important that we return content in mark down.#{' '}
 
-    (Note: Real articles should be detailed, respecting length and depth appropriate for a proper news article on similar topics.)
+    # Important Notes
 
-    # Notes
-
-    - Thoroughly verify all claims using reputable sources.
     - Be mindful to maintain balance and impartiality.
-    - Ensure minority or less-represented voices are heard in applicable sections.
     TEXT
   end
 
