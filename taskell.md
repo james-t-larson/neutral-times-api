@@ -6,6 +6,9 @@
 - Integrate with some kind of plagarism checker
     > Need to make sure that these are effective.
     > Can use the responses from this as a way to train the assistant with fine tuning.
+- Implement Custom Categories
+    > Custom Categories should be something before new categories suggestions 
+- There needs to be able to mark a certain article as bad, and maybe a  check list for how?
 - Integrate with Mozilla TTS
     > I would like the news read to me. Check out Mozilla TTS and see if it's good enough for this
 - User Profiles need to be defined
@@ -14,10 +17,8 @@
     > If no similar events are found it should write one.
 - Use Git integration with SimpleCov to ensure that any change has tests written
     > simplecov-icov has a tool that can check tests for only changed files. this should ensure nearly 100% test coverage and catch anything that isn't tested
-- Images should mainly be sketches
-- Implement Custom Categories
-    > Custom Categories should be something before new categories suggestions 
 - Switch to an open source LLM
+- Images should mainly be sketches
 
 ## To Do
 
@@ -27,6 +28,10 @@
 - Implment category filter to articles endpoint
     > The user should be able to request business or political articles. 
     * [ ] Should write 10 political and 10 business related articles
+- Implement Prompt Versioning
+    * [ ] Move Prompt into DB
+    * [ ] Add columns for sentiment, readibilty
+    * [ ] If its easily detectably. Things like, "This article was written following certain guidlines"
 - Link taskell and the github project
 - Github actions should build on merge to main
     > Tests are run locally and in develop before merge to main 
