@@ -11,6 +11,7 @@ module NeutralNewsApi
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.2
     config.api_only = true
+    config.time_zone = "Pacific Time (US & Canada)"
 
     config.generators do |g|
       g.test_framework :rspec

@@ -19,12 +19,17 @@
     > simplecov-icov has a tool that can check tests for only changed files. this should ensure nearly 100% test coverage and catch anything that isn't tested
 - Switch to an open source LLM
 - Images should mainly be sketches
+- Integrate with a citation machine for sources
+    > There is a gem called citeproc-ruby that might work. This would be good for getting all the articles around a specific event and putting them into sources for the article
+- Add Morning Brief
+    > This could be done with integrating with weather and traffic apis. Then write a summary on that. I could also include an estimated time to work. If there is a difference outside the norm, then it could notify me. 
+- Add Gem for readibility
+    > Can be used to guage the performance of a prompt
+- Add Gem for semetality
+    > Can be used for tracking the performance of a prompt
 
 ## To Do
 
-- Complete Tests for the Article Controller
-    > There are features and things that are not tested
-    * [ ] Should not be able to request articles for the future
 - Implment category filter to articles endpoint
     > The user should be able to request business or political articles. 
     * [ ] Should write 10 political and 10 business related articles
@@ -105,3 +110,6 @@
     * [x] Get top articles from Articles endpoint
     * [x] Pass article content into chat gpt to rewrite
     * [x] Add api key to secrets
+- Complete Tests for the Article Controller
+    > There are features and things that are not tested
+    * [ ] Should not be able to request articles for the future
