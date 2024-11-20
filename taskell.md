@@ -38,7 +38,6 @@
 - Github actions should build on merge to main
     > Tests are run locally and in develop before merge to main 
 - Add Lazydocker to nvim
-- Prod should not be using seed data
 - Update swagger so that it points at the correct domain depending on the env
     * [ ] Need to get around basic auth in dev somehow
     * [ ] 
@@ -47,8 +46,6 @@
 - Complete Tests for Generation Service
 - Get Lazydocker working in AWS instance. Can't even get into rails c without googling
 - Move prompt to database
-- Persist database as a volume in the docker-compose file.
-    > This is the reason that the database is lost when docker-compose down is run
 
 ## Doing
 
@@ -115,3 +112,6 @@
     > There are features and things that are not tested
     * [x] Should not be able to request articles for the future
     * [ ] 
+- Prod should not be using seed data
+- Persist database as a volume in the docker-compose file.
+    > This is the reason that the database is lost when docker-compose down is run

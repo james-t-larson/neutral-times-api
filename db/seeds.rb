@@ -9,6 +9,12 @@
 #   end
 #
 # # Clear existing data (optional, if you want to start fresh)
+
+if Rails.env.production?
+  puts "Seeding is disabled in production!"
+  exit
+end
+
 Article.destroy_all
 
 article1 = Article.create!(
