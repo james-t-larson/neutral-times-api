@@ -43,6 +43,6 @@ class EventRegistryClient
     }
 
     resp = self.class.post("/article/getArticles", options)
-    resp["recentActivityArticles"]["activity"]
+    resp["recentActivityArticles"]["activity"][0..9]
   end
 end

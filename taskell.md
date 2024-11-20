@@ -33,10 +33,7 @@
 - Implment category filter to articles endpoint
     > The user should be able to request business or political articles. 
     * [ ] Should write 10 political and 10 business related articles
-- Implement Prompt Versioning
-    * [ ] Move Prompt into DB
-    * [ ] Add columns for sentiment, readibilty
-    * [ ] If its easily detectably. Things like, "This article was written following certain guidlines"
+- Event Registry should not create more than 10 articles at a time
 - Link taskell and the github project
 - Github actions should build on merge to main
     > Tests are run locally and in develop before merge to main 
@@ -55,6 +52,10 @@
 
 ## Doing
 
+- Implement Prompt Versioning
+    * [ ] Move Prompt into DB
+    * [ ] Add columns for sentiment, readibilty
+    * [ ] If its easily detectably. Things like, "This article was written following certain guidlines"
 - Prompt should be changed to reduce emotional language.
     * [ ] The current prompt have content that makes it easy to detect as an ai. 
     * [ ] The old prompt is to complex. Reduce complexity
@@ -112,4 +113,5 @@
     * [x] Add api key to secrets
 - Complete Tests for the Article Controller
     > There are features and things that are not tested
-    * [ ] Should not be able to request articles for the future
+    * [x] Should not be able to request articles for the future
+    * [ ] 
