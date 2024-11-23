@@ -1,20 +1,20 @@
 ## Long-Term Goals
 
+- Add Gem for semetality
+    > Can be used for tracking the performance of a prompt
+- Add Gem for readibility
+    > Can be used to guage the performance of a prompt
 - Integrate with a fact checker
     > Can use the responses from this as a way to train the assistant with fine tuning.
     * [ ] Learn about different fact checkers that I can integrate with
 - Integrate with some kind of plagarism checker
     > Need to make sure that these are effective.
     > Can use the responses from this as a way to train the assistant with fine tuning.
-- Implement Custom Categories
-    > Custom Categories should be something before new categories suggestions 
 - There needs to be able to mark a certain article as bad, and maybe a  check list for how?
 - Integrate with Mozilla TTS
     > I would like the news read to me. Check out Mozilla TTS and see if it's good enough for this
 - User Profiles need to be defined
     > Sessions are needed for invites, no need for preferences for mvp
-- Add event search
-    > If no similar events are found it should write one.
 - Use Git integration with SimpleCov to ensure that any change has tests written
     > simplecov-icov has a tool that can check tests for only changed files. this should ensure nearly 100% test coverage and catch anything that isn't tested
 - Switch to an open source LLM
@@ -23,18 +23,26 @@
     > There is a gem called citeproc-ruby that might work. This would be good for getting all the articles around a specific event and putting them into sources for the article
 - Add Morning Brief
     > This could be done with integrating with weather and traffic apis. Then write a summary on that. I could also include an estimated time to work. If there is a difference outside the norm, then it could notify me. 
-- Add Gem for readibility
-    > Can be used to guage the performance of a prompt
-- Add Gem for semetality
-    > Can be used for tracking the performance of a prompt
+- Implment some kind of bias detection
+- Add event search
+    > If no similar events are found it should write one.
 
 ## To Do
 
-- Implment category filter to articles endpoint
-    > The user should be able to request business or political articles. 
-    * [ ] Should write 10 political and 10 business related articles
+- Get reporting working (logs, and alerts)
+- Implement Categories
+    * [ ] Should be a single endpoint
+    * [ ] Add category param to Article
+    * [ ] When requesting categories, it should get all Articles (for the day) in that category
+    * [ ] Should be some main categorues
+    * [ ] I don't want to needlessly write articles. See if I can write articles when they are clicked?
+- Implement Prompt Versioning
+    * [ ] Move Prompt into DB
+    * [ ] Add columns for sentiment, readibilty, and plagerism scores, bias, fact divergence
+- Prompt should be changed to reduce emotional language.
+    * [ ] The current prompt have content that makes it easy to detect as an ai. 
+    * [ ] The old prompt is to complex. Reduce complexity
 - Event Registry should not create more than 10 articles at a time
-- Link taskell and the github project
 - Github actions should build on merge to main
     > Tests are run locally and in develop before merge to main 
 - Add Lazydocker to nvim
@@ -43,19 +51,17 @@
     * [ ] 
 - Complete Tests for OpenAi Service
 - Complete Tests for Event Registry
-- Complete Tests for Generation Service
 - Get Lazydocker working in AWS instance. Can't even get into rails c without googling
-- Move prompt to database
+- Complete Tests for Generation Service
 
 ## Doing
 
-- Implement Prompt Versioning
-    * [ ] Move Prompt into DB
-    * [ ] Add columns for sentiment, readibilty
-    * [ ] If its easily detectably. Things like, "This article was written following certain guidlines"
-- Prompt should be changed to reduce emotional language.
-    * [ ] The current prompt have content that makes it easy to detect as an ai. 
-    * [ ] The old prompt is to complex. Reduce complexity
+- Get a domain
+- Define feature spec
+- Show Articles from yesterday if no articles were generated today
+    * [ ] define v2 artciles
+    * [ ] content should be wrapped in an object so messages can be sent to the client
+    * [ ] send error http when content is old
 
 ## Done
 
@@ -115,3 +121,4 @@
 - Prod should not be using seed data
 - Persist database as a volume in the docker-compose file.
     > This is the reason that the database is lost when docker-compose down is run
+- Link taskell and the github project
