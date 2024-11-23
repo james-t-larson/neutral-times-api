@@ -11,9 +11,9 @@ class ArticlesController < ApplicationController
 
     if params[:date]
       date = DateTime.iso8601(params[:date])
-      articles = Article.published_between(date, date)
+      articles = Article.published_on(date)
     else
-      articles = Article.published_today
+      articles = Article.last_batch_published
     end
 
     render json: articles.as_json

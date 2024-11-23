@@ -2,23 +2,27 @@ require 'rails_helper'
 
 RSpec.describe ArticlesController, type: :controller do
   describe 'GET #index' do
-    let!(:today_articles) { create_list(:article, 3) }
-
-    context 'without a date parameter' do
+    context 'without a date parameter and articles published today' do
+      let!(:today_articles) { create_list(:article, 3) }
       it 'returns articles published today' do
-        allow(Article).to receive(:published_today).and_return(today_articles)
+        allow(Article).to receive(:last_batch_published).and_return(today_articles)
 
         get :index
         expect(response).to have_http_status(:ok)
         expect(JSON.parse(response.body).size).to eq(3)
       end
+    end
 
-      it 'returns an empty array if no articles are published today' do
-        allow(Article).to receive(:published_today).and_return([])
+    context 'without a date parameter and no articles published today' do
+      let(:date) { datetime.now.iso8601 }
+      let(:dated_articles) { create_list(:article, 2) }
+
+      it 'returns old articles if no articles are published today' do
+        allow(Article).to receive(:last_batch_published).and_return(dated_articles)
 
         get :index
         expect(response).to have_http_status(:ok)
-        expect(JSON.parse(response.body)).to eq([])
+        expect(JSON.parse(response.body).size).to eq(2)
       end
     end
 
@@ -26,15 +30,15 @@ RSpec.describe ArticlesController, type: :controller do
       let(:date) { DateTime.now.iso8601 }
       let(:dated_articles) { create_list(:article, 2) }
 
-      it 'returns articles published between the given date' do
-        allow(Article).to receive(:published_between).with(any_args).and_return(dated_articles)
+      it 'returns articles published on the given date' do
+        allow(Article).to receive(:published_on).with(any_args).and_return(dated_articles)
 
         get :index, params: { date: date }
         expect(response).to have_http_status(:ok)
         expect(JSON.parse(response.body).size).to eq(2)
       end
 
-      it 'returns an empty array if no articles are published for the given date' do
+      it 'returns old articles no articles are published for the given date' do
         allow(Article).to receive(:published_between).with(any_args).and_return([])
 
         get :index, params: { date: date }
@@ -70,9 +74,10 @@ RSpec.describe ArticlesController, type: :controller do
     end
 
     context 'edge cases with date formats' do
+      let!(:today_articles) { create_list(:article, 3) }
       it 'handles timezone edge cases properly' do
         edge_date = '2024-11-19T23:59:59+00:00'
-        allow(Article).to receive(:published_between).with(any_args).and_return(today_articles)
+        allow(Article).to receive(:published_on).with(any_args).and_return(today_articles)
 
         get :index, params: { date: edge_date }
         expect(response).to have_http_status(:ok)

@@ -6,6 +6,13 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def generic_render(data = {}, message = nil, options = {})
+    render json: {
+      message: message,
+      data: data
+    }
+  end
+
   def record_not_found
     render json: { error: "Article not found" }, status: :not_found
   end

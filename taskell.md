@@ -31,11 +31,13 @@
 
 - Get reporting working (logs, and alerts)
 - Implement Categories
+    * [ ] Make sure to create a v1 folder for this
     * [ ] Should be a single endpoint
-    * [ ] Add category param to Article
+    * [ ] Add category param to Article V2
     * [ ] When requesting categories, it should get all Articles (for the day) in that category
     * [ ] Should be some main categorues
     * [ ] I don't want to needlessly write articles. See if I can write articles when they are clicked?
+    * [ ] 
 - Implement Prompt Versioning
     * [ ] Move Prompt into DB
     * [ ] Add columns for sentiment, readibilty, and plagerism scores, bias, fact divergence
@@ -56,12 +58,14 @@
 
 ## Doing
 
-- Get a domain
-- Define feature spec
 - Show Articles from yesterday if no articles were generated today
-    * [ ] define v2 artciles
-    * [ ] content should be wrapped in an object so messages can be sent to the client
+    > Use the application controller to define a single wrapper for content. anything passed into this might be called data:
+    * [x] define v2 artciles
+    * [x] content should be wrapped in an object so messages can be sent to the client
     * [ ] send error http when content is old
+    * [x] needs to handle the initial creation of the project. if there are no articles at all
+- Fix issue with generating articles at weird times or not at all
+- Define feature spec
 
 ## Done
 
@@ -122,3 +126,4 @@
 - Persist database as a volume in the docker-compose file.
     > This is the reason that the database is lost when docker-compose down is run
 - Link taskell and the github project
+- Get a domain
