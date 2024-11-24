@@ -60,6 +60,7 @@ class OpenaiClient
     )
 
     article_data = JSON.parse(response["choices"].first["message"]["content"], symbolize_names: true)
+    update_sentiment(article_data[:article][:content])
     validate_response(article_data)
   end
 
@@ -101,29 +102,33 @@ class OpenaiClient
   end
 
   def system_instructions
-    <<~TEXT
-    Generate news articles based on the provided media fairness and balance rules.
-    Articles should adhere to these principles to ensure unbiased and balanced reporting.
+    @prompt ||= Prompt.first
+    @system_instructions ||= @prompt.text
+  end
 
-    # Steps
+  def sentiment_analyzer
+    @sentiment_analyzer ||= Sentimental.new
+    @sentiment_defaults ||= @sentiment_analyzer.load_defaults
+    @sentiment_analyzer
+  end
 
-    - **Coverage of Controversial Issues**: Ensure the article explores differing perspectives on public issues to provide a balanced and comprehensive view.
-    - **Equal Time Rule**: For articles about political candidates, ensure equal space and coverage are provided for all candidates involved.
-    - **Personal Attack Rule**: If critiquing or attacking individuals or groups, include their response or viewpoint for balanced coverage.
-    - **Political Editorial Rule**: When endorsing candidates, we should never personally endorse candidates, only mention that others have.
-    - **Transparency Rule**: Clearly cite sources and disclose any affiliations that may influence the article content.
+  def update_sentiment(article)
+    score = sentiment_analyzer.score(article)
+    current_average = @prompt.sentiment
+    current_count = @prompt.usage_count
 
-    # Output Format
+    new_count = current_count + 1
 
-    - Write a complete article that fully complies with the prescribed rules.
-    - The article should be well-structured with a title, introduction, body paragraphs covering multiple viewpoints, and a conclusion.
-    - Clearly attribute all sources and disclose any relevant affiliations in footnotes or at the end of the article text.
-    - It is vitally important that we return content in mark down.#{' '}
+    new_average = ((current_average * current_count) + score) / new_count
 
-    # Important Notes
+    Rails.logger.info "Updating sentiment:
+      Article score: #{score},
+      Current average: #{current_average},
+      Current count: #{current_count},
+      New count: #{new_count},
+      New average: #{new_average}"
 
-    - Be mindful to maintain balance and impartiality.
-    TEXT
+    @prompt.update_columns(sentiment: new_average, usage_count: new_count)
   end
 
   def validate_response(data)

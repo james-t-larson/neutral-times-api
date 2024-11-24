@@ -1,15 +1,16 @@
 ## Long-Term Goals
 
-- Add Gem for semetality
-    > Can be used for tracking the performance of a prompt
 - Add Gem for readibility
     > Can be used to guage the performance of a prompt
+    * [ ] Add column to track the current prompts readibility
 - Integrate with a fact checker
     > Can use the responses from this as a way to train the assistant with fine tuning.
     * [ ] Learn about different fact checkers that I can integrate with
+    * [ ] Add column to prompts table to track factuality
 - Integrate with some kind of plagarism checker
     > Need to make sure that these are effective.
     > Can use the responses from this as a way to train the assistant with fine tuning.
+    * [ ] Add column to prompts table to track plagerism failures
 - There needs to be able to mark a certain article as bad, and maybe a  check list for how?
 - Integrate with Mozilla TTS
     > I would like the news read to me. Check out Mozilla TTS and see if it's good enough for this
@@ -24,6 +25,7 @@
 - Add Morning Brief
     > This could be done with integrating with weather and traffic apis. Then write a summary on that. I could also include an estimated time to work. If there is a difference outside the norm, then it could notify me. 
 - Implment some kind of bias detection
+    * [ ] Add column to Prompts table to track bais failures
 - Add event search
     > If no similar events are found it should write one.
 
@@ -55,12 +57,6 @@
 
 ## Doing
 
-- Implement Prompt Versioning
-    * [ ] Move Prompt into DB
-    * [ ] Add columns for sentiment, readibilty, and plagerism scores, bias, fact divergence
-- Fix issue with generating articles at weird times or not at all
-    * [x] Add better logs 
-    * [x] Remove mid day generation. no need for that
 
 ## Done
 
@@ -129,3 +125,11 @@
     * [x] send error http when content is old
     * [x] needs to handle the initial creation of the project. if there are no articles at all
 - Define feature spec
+- Fix issue with generating articles at weird times or not at all
+    * [x] Add better logs 
+    * [x] Remove mid day generation. no need for that
+- Add Gem for semetality
+    > Can be used for tracking the performance of a prompt
+- Implement Prompt Versioning
+    * [x] Move Prompt into DB
+    * [x] Add columns for sentiment
