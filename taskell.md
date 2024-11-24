@@ -38,9 +38,6 @@
     * [ ] Should be some main categorues
     * [ ] I don't want to needlessly write articles. See if I can write articles when they are clicked?
     * [ ] 
-- Implement Prompt Versioning
-    * [ ] Move Prompt into DB
-    * [ ] Add columns for sentiment, readibilty, and plagerism scores, bias, fact divergence
 - Prompt should be changed to reduce emotional language.
     * [ ] The current prompt have content that makes it easy to detect as an ai. 
     * [ ] The old prompt is to complex. Reduce complexity
@@ -58,14 +55,12 @@
 
 ## Doing
 
-- Show Articles from yesterday if no articles were generated today
-    > Use the application controller to define a single wrapper for content. anything passed into this might be called data:
-    * [x] define v2 artciles
-    * [x] content should be wrapped in an object so messages can be sent to the client
-    * [ ] send error http when content is old
-    * [x] needs to handle the initial creation of the project. if there are no articles at all
+- Implement Prompt Versioning
+    * [ ] Move Prompt into DB
+    * [ ] Add columns for sentiment, readibilty, and plagerism scores, bias, fact divergence
 - Fix issue with generating articles at weird times or not at all
-- Define feature spec
+    * [x] Add better logs 
+    * [x] Remove mid day generation. no need for that
 
 ## Done
 
@@ -127,3 +122,10 @@
     > This is the reason that the database is lost when docker-compose down is run
 - Link taskell and the github project
 - Get a domain
+- Show Articles from yesterday if no articles were generated today
+    > Use the application controller to define a single wrapper for content. anything passed into this might be called data:
+    * [x] define v2 artciles
+    * [x] content should be wrapped in an object so messages can be sent to the client
+    * [x] send error http when content is old
+    * [x] needs to handle the initial creation of the project. if there are no articles at all
+- Define feature spec

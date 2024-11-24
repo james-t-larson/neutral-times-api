@@ -6,9 +6,10 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def generic_render(data = {}, message = nil, options = {})
+  def generic_render(data = {}, message = nil, code = 0, options = {})
     render json: {
       message: message,
+      code: code,
       data: data
     }
   end
