@@ -1,100 +1,94 @@
-1. Fetch All Categories
+## 1. Fetch All Categories
 
-GET /categories
+**GET** `/categories`
 
-	•	Description: Retrieve a list of all available categories.
-	•	Response:
+- **Description**: Retrieve a list of all available categories.
+- **Response**:
+  ```json
+  [
+    { "id": 1, "name": "Politics", "slug": "politics" },
+    { "id": 2, "name": "Sports", "slug": "sports" },
+    { "id": 3, "name": "Technology", "slug": "technology" },
+    { "id": 4, "name": "Health", "slug": "health" },
+    { "id": 5, "name": "Entertainment", "slug": "entertainment" }
+  ]
 
-[
-  { "id": 1, "name": "Politics", "slug": "politics" },
-  { "id": 2, "name": "Sports", "slug": "sports" },
-  { "id": 3, "name": "Technology", "slug": "technology" },
-  { "id": 4, "name": "Health", "slug": "health" },
-  { "id": 5, "name": "Entertainment", "slug": "entertainment" }
-]
+## 2. Fetch a Single Category
 
+**GET** `/categories/{id}`
 
-
-2. Fetch a Single Category
-
-GET /categories/{id}
-
-	•	Description: Retrieve details of a specific category by its ID.
-	•	Response:
-
-{
-  "id": 3,
-  "name": "Technology",
-  "slug": "technology",
-  "description": "All about tech news and updates."
-}
-
-Admin Endpoints
-
-These endpoints are restricted to administrative users and require appropriate authentication. They allow for creating, updating, deleting, and retrieving categories.
-
-3. Fetch All Categories (Admin)
-
-GET /admin/categories
-
-	•	Description: Retrieve a list of all categories, including additional administrative details.
-	•	Response:
-
-[
+- **Description**: Retrieve details of a specific category by its ID.
+- **Response**:
+  ```json
   {
-    "id": 1,
-    "name": "Politics",
-    "slug": "politics",
-    "description": "Political news and updates.",
-    "createdAt": "2024-01-15T10:00:00Z",
-    "updatedAt": "2024-11-20T12:00:00Z"
-  },
-  {
-    "id": 2,
-    "name": "Sports",
-    "slug": "sports",
-    "description": "Latest sports news.",
-    "createdAt": "2024-02-10T11:30:00Z",
-    "updatedAt": "2024-11-18T09:45:00Z"
+    "id": 3,
+    "name": "Technology",
+    "slug": "technology",
+    "description": "All about tech news and updates."
   }
-  // Additional categories...
-]
 
+## Admin Endpoints
 
+*These endpoints are restricted to administrative users and require appropriate authentication. They allow for creating, updating, deleting, and retrieving categories.*
 
-4. Fetch a Single Category (Admin)
+---
 
-GET /admin/categories/{id}
+### 3. Fetch All Categories (Admin)
 
-	•	Description: Retrieve detailed information of a specific category by its ID, including administrative metadata.
-	•	Response:
+**GET** `/admin/categories`
 
-{
-  "id": 3,
-  "name": "Technology",
-  "slug": "technology",
-  "description": "All about tech news and updates.",
-  "createdAt": "2024-03-05T14:20:00Z",
-  "updatedAt": "2024-11-22T16:10:00Z"
-}
+- **Description**: Retrieve a list of all categories, including additional administrative details.
+- **Response**:
+  ```json
+  [
+    {
+      "id": 1,
+      "name": "Politics",
+      "slug": "politics",
+      "description": "Political news and updates.",
+      "createdAt": "2024-01-15T10:00:00Z",
+      "updatedAt": "2024-11-20T12:00:00Z"
+    },
+    {
+      "id": 2,
+      "name": "Sports",
+      "slug": "sports",
+      "description": "Latest sports news.",
+      "createdAt": "2024-02-10T11:30:00Z",
+      "updatedAt": "2024-11-18T09:45:00Z"
+    }
+  ]
 
+### 4. Fetch a Single Category (Admin)
 
+**GET** `/admin/categories/{id}`
 
-5. Create a New Category
+- **Description**: Retrieve detailed information of a specific category by its ID, including administrative metadata.
+- **Response**:
+  ```json
+  {
+    "id": 3,
+    "name": "Technology",
+    "slug": "technology",
+    "description": "All about tech news and updates.",
+    "createdAt": "2024-03-05T14:20:00Z",
+    "updatedAt": "2024-11-22T16:10:00Z"
+  }
 
-POST /admin/categories
+### 5. Create a New Category
 
-	•	Description: Add a new category to the news site.
-	•	Request Body:
+**POST** `/admin/categories`
 
-{
-  "name": "Science",
-  "slug": "science",
-  "description": "Articles and updates related to science."
-}
+- **Description**: Add a new category to the news site.
+- **Request Body**:
+  ```json
+  {
+    "name": "Science",
+    "slug": "science",
+    "description": "Articles and updates related to science."
+  }
 
-
-	•	Response:
+- **Response**:
 
 {
   "id": 6,
@@ -105,23 +99,21 @@ POST /admin/categories
   "updatedAt": "2024-11-25T08:30:00Z"
 }
 
+### 6. Update an Existing Category
+
+**PUT** `/admin/categories/{id}`
+
+- **Description**: Update the details of an existing category.
+- **Request Body**:
+  ```json
+  {
+    "name": "World News",
+    "slug": "world-news",
+    "description": "Global news and international updates."
+  }
 
 
-6. Update an Existing Category
-
-PUT /admin/categories/{id}
-
-	•	Description: Update the details of an existing category.
-	•	Request Body:
-
-{
-  "name": "World News",
-  "slug": "world-news",
-  "description": "Global news and international updates."
-}
-
-
-	•	Response:
+- **Response**:
 
 {
   "id": 1,
@@ -132,27 +124,12 @@ PUT /admin/categories/{id}
   "updatedAt": "2024-11-25T09:00:00Z"
 }
 
+### 7. Delete a Category
 
+**DELETE** `/admin/categories/{id}`
 
-7. Delete a Category
+- **Description**: Remove a category from the news site.
+- **Response**:
+  ```json
+  { "success": true }
 
-DELETE /admin/categories/{id}
-
-	•	Description: Remove a category from the news site.
-	•	Response:
-
-{ "success": true }
-
-Notes:
-
-	•	Authentication: Admin endpoints (/admin/*) should be protected with appropriate authentication mechanisms to prevent unauthorized access.
-	•	Data Consistency: Ensure that deleting a category does not orphan related articles. Implement cascading deletes or reassign articles to a default category as needed.
-	•	Field Descriptions:
-	•	id: Unique identifier for the category.
-	•	name: Human-readable name of the category.
-	•	slug: URL-friendly version of the category name, typically lowercase with words separated by hyphens.
-	•	description: A brief explanation of the category’s content.
-	•	createdAt: Timestamp indicating when the category was created.
-	•	updatedAt: Timestamp indicating the last time the category was updated.
-
-This structured approach ensures a clear separation between public and administrative functionalities, maintaining both security and usability.
