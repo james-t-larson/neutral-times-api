@@ -32,6 +32,14 @@
 ## To Do
 
 - Get reporting working (logs, and alerts)
+- Get new domains with sub domains working
+  * [ ] Point stage.neutraltimes.press pointed at current env
+  * [ ] Get neutraltimes.press pointed at current env as well, should not let anyone through
+- Add management endpoint for prompts
+  * [ ] Implment prompts spec in README
+- Add authentication with api keys.
+  * [ ] If no api key is passed reject with basic auth, do no notify the user
+  * [ ] If api key is passed, but does not find a match, reject with 401 and empty body
 - Implement Categories
     * [ ] Make sure to create a v1 folder for this
     * [ ] Should be a single endpoint
@@ -39,7 +47,6 @@
     * [ ] When requesting categories, it should get all Articles (for the day) in that category
     * [ ] Should be some main categorues
     * [ ] I don't want to needlessly write articles. See if I can write articles when they are clicked?
-    * [ ] 
 - Prompt should be changed to reduce emotional language.
     * [ ] The current prompt have content that makes it easy to detect as an ai. 
     * [ ] The old prompt is to complex. Reduce complexity
