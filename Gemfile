@@ -56,6 +56,8 @@ gem "paper_trail", "~> 12.0"
 
 gem "sentimental"
 
+gem "diffy"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri ], require: "debug/prelude"

@@ -54,28 +54,7 @@ GET /admin/prompts/diff
     "modifications": ["Line 1: Changed wording from 'old' to 'new'."]
   }
 
-6. Create a New Version
-
-POST /admin/prompts
-- Description: Create a new version of the prompt and set it as active.
-- Body:
-  { "content": "New prompt text" }
-- Response:
-  {
-    "id": 1,
-    "version": 6,
-    "content": "New prompt text",
-    "updatedAt": "2024-11-25T11:00:00Z"
-  }
-
-7. Lock Prompt for Editing
-
-POST /admin/prompts/lock
-- Description: Lock the current prompt to prevent editing.
-- Response:
-  { "success": true, "lockedBy": "admin", "lockedAt": "2024-11-25T11:30:00Z" }
-
-8. Sort prompt and versions by performance
+6. Sort prompt and versions by performance
 
 GET /admin/prompts/sort/metrics
 - Description: Sort all prompts by specified metrics such as sentiment, bias, factuality, and plagiarism.

@@ -49,10 +49,12 @@ RSpec.describe 'Articles API', type: :request do
         let(:date) { "2024-17-04" }
 
         schema type: :object,
-               properties: {
-                 error: { type: :string }
-               },
-               required: [ 'error' ]
+          properties: {
+            message: { type: :string },
+            code: { type: :int },
+            data: { type: :object }
+          },
+          required: [ 'error' ]
 
         run_test! do |response|
           json_response = JSON.parse(response.body)
@@ -104,16 +106,18 @@ RSpec.describe 'Articles API', type: :request do
         let(:id) { -1 }
 
         schema type: :object,
-               properties: {
-                 error: { type: :string }
-               },
-               required: [ 'error' ]
+          properties: {
+            message: { type: :string },
+            code: { type: :int },
+            data: { type: :object }
+          },
+          required: [ 'message' ]
 
         run_test! do |response|
           json_response = JSON.parse(response.body)
 
           expect(response).to have_http_status(:not_found)
-          expect(json_response['error']).to eq("Article not found")
+          expect(json_response['message']).to eq("Record not found")
         end
       end
     end

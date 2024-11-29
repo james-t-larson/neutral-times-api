@@ -22,7 +22,7 @@ RSpec.describe ArticlesController, type: :controller do
         expect(response).to have_http_status(:not_found)
 
         json_response = JSON.parse(response.body)
-        expect(json_response['error']).to include('Article not found')
+        expect(json_response['message']).to include('Record not found')
       end
     end
 

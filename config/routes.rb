@@ -8,6 +8,17 @@ Rails.application.routes.draw do
     resources :articles, only: [ :index, :show ]
   end
 
+  namespace :admin do
+    resources :prompts do
+      collection do
+        get "versions"
+        get "versions/diff", to: "prompts#diff", as: "diff"
+        get "versions/:id", to: "prompts#version", as: "version"
+        get "versions/restore/:id", to: "prompts#restore", as: "restore"
+      end
+    end
+  end
+
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check

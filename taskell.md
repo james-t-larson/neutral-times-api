@@ -31,15 +31,15 @@
 
 ## To Do
 
+- Add authentication with api keys.
+    * [ ] If no api key is passed reject with basic auth, do no notify the user
+    * [ ] If api key is passed, but does not find a match, reject with 401 and empty body
+    * [ ] There should be admin api keys
+    * [ ] Should only affect v2/articles and admin routes
 - Get reporting working (logs, and alerts)
 - Get new domains with sub domains working
-  * [ ] Point stage.neutraltimes.press pointed at current env
-  * [ ] Get neutraltimes.press pointed at current env as well, should not let anyone through
-- Add management endpoint for prompts
-  * [ ] Implment prompts spec in README
-- Add authentication with api keys.
-  * [ ] If no api key is passed reject with basic auth, do no notify the user
-  * [ ] If api key is passed, but does not find a match, reject with 401 and empty body
+    * [ ] Point stage.neutraltimes.press pointed at current env
+    * [ ] Get neutraltimes.press pointed at current env as well, should not let anyone through
 - Implement Categories
     * [ ] Make sure to create a v1 folder for this
     * [ ] Should be a single endpoint
@@ -64,6 +64,8 @@
 
 ## Doing
 
+- Add management endpoint for prompts
+    * [ ] Implment prompts spec in README
 
 ## Done
 

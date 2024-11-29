@@ -13,6 +13,6 @@ class V2::ArticlesController < ::ArticlesController
     message = "We are providing old articles as there is something wrong in the background" if no_recent_articles
     code = 1 if no_recent_articles
 
-    generic_render(articles, message, code)
+    generic_render(data: articles, message: message, code: code)
   end
 end
