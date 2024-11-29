@@ -45,7 +45,7 @@ module Admin
 
     def extract_version_text(version_param)
       version_object = Prompt.current.versions.find(version_param).object || ""
-      version_data = YAML.load(version_object, permitted_classes: [ Time ])
+      version_data = YAML.safe_load(version_object, permitted_classes: [ Time ])
       version_data ? version_data["text"] : ""
     end
   end

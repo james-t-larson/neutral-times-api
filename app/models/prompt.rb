@@ -3,5 +3,5 @@ class Prompt < ApplicationRecord
 
   validates :text, presence: true
 
-  scope :current, -> { where(id: 1) }
+  scope :current, -> { where(id: 1).first }
 end

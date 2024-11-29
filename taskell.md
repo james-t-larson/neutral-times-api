@@ -31,11 +31,6 @@
 
 ## To Do
 
-- Add authentication with api keys.
-    * [ ] If no api key is passed reject with basic auth, do no notify the user
-    * [ ] If api key is passed, but does not find a match, reject with 401 and empty body
-    * [ ] There should be admin api keys
-    * [ ] Should only affect v2/articles and admin routes
 - Get reporting working (logs, and alerts)
 - Get new domains with sub domains working
     * [ ] Point stage.neutraltimes.press pointed at current env
@@ -64,8 +59,12 @@
 
 ## Doing
 
-- Add management endpoint for prompts
-    * [ ] Implment prompts spec in README
+- Add tests for Prompt modelt
+- Add authentication with api keys.
+    * [ ] If no api key is passed reject with basic auth, do no notify the user
+    * [ ] If api key is passed, but does not find a match, reject with 401 and empty body
+    * [ ] There should be admin api keys
+    * [ ] Should only affect v2/articles and admin routes
 
 ## Done
 
@@ -142,3 +141,5 @@
 - Implement Prompt Versioning
     * [x] Move Prompt into DB
     * [x] Add columns for sentiment
+- Add management endpoint for prompts
+    * [ ] Implment prompts spec in README
