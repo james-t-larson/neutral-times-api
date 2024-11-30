@@ -52,7 +52,7 @@ gem "rails_param"
 
 gem "shoulda-matchers", "~> 5.0"
 
-gem "paper_trail", "~> 12.0"
+gem "paper_trail", "~> 16.0"
 
 gem "sentimental"
 
