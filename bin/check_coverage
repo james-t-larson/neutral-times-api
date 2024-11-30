@@ -1,0 +1,47 @@
+#!/usr/bin/env ruby
+
+require 'json'
+
+# Constants
+COVERAGE_FILE = 'coverage/.resultset.json'
+MINIMUM_COVERAGE = 15.0
+
+# Ensure the coverage file exists
+unless File.exist?(COVERAGE_FILE)
+  puts "❌ Coverage report not found at #{COVERAGE_FILE}. Ensure tests are run before committing."
+  exit(1)
+end
+
+# Parse the JSON coverage report
+coverage_data = JSON.parse(File.read(COVERAGE_FILE))
+
+# Extract coverage data
+RSpec_coverage = coverage_data.dig("RSpec", "coverage")
+unless RSpec_coverage
+  puts "❌ Invalid coverage data. Ensure SimpleCov is configured correctly."
+  exit(1)
+end
+
+# Calculate overall coverage
+total_lines = 0
+covered_lines = 0
+
+RSpec_coverage.each do |file_path, data|
+  next unless data["lines"] # Skip files without line coverage data
+
+  lines = data["lines"]
+  total_lines += lines.compact.size # Count all lines that are not `null`
+  covered_lines += lines.compact.count { |line| line.to_i > 0 } # Count lines that have coverage
+end
+
+coverage_percentage = (covered_lines.to_f / total_lines.to_f) * 100
+
+# Check if coverage meets the minimum threshold
+if coverage_percentage < MINIMUM_COVERAGE
+  puts "❌ Test coverage is below the required threshold of #{MINIMUM_COVERAGE}%."
+  puts "   Current coverage: #{coverage_percentage.round(2)}%"
+  exit(1)
+else
+  puts "✅ Test coverage is sufficient: #{coverage_percentage.round(2)}%."
+  exit(0)
+end

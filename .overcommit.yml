@@ -29,6 +29,11 @@ PreCommit:
     command: ['bundle', 'exec', 'rspec']
     description: 'Running RSpec tests'
 
+  CustomCoverageCheck:
+    enabled: true
+    description: 'Check that test coverage does not fall below 15%... '
+    command: ['bin/check_coverage']
+
 #  TrailingWhitespace:
 #    enabled: true
 #    exclude:

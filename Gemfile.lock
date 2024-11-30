@@ -108,6 +108,7 @@ GEM
       reline (>= 0.3.8)
     diff-lcs (1.5.1)
     diffy (3.4.3)
+    docile (1.4.1)
     drb (2.2.1)
     error_highlight (0.3.0)
     erubi (1.13.0)
@@ -328,6 +329,15 @@ GEM
     sentimental (1.5.0)
     shoulda-matchers (5.3.0)
       activesupport (>= 5.2.0)
+    simplecov (0.22.0)
+      docile (~> 1.1)
+      simplecov-html (~> 0.11)
+      simplecov_json_formatter (~> 0.1)
+    simplecov-html (0.13.1)
+    simplecov-json (0.2.3)
+      json
+      simplecov
+    simplecov_json_formatter (0.1.4)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -398,6 +408,8 @@ DEPENDENCIES
   selenium-webdriver
   sentimental
   shoulda-matchers (~> 5.0)
+  simplecov
+  simplecov-json (~> 0.2.3)
   sprockets-rails
   stimulus-rails
   turbo-rails
