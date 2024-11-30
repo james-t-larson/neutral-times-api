@@ -50,7 +50,7 @@ gem "rswag"
 
 gem "rails_param"
 
-gem "shoulda-matchers", "~> 5.0"
+gem "shoulda-matchers", "~> 6.4"
 
 gem "paper_trail", "~> 12.0"
 
