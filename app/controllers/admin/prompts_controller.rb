@@ -25,7 +25,7 @@ module Admin
       param!(:id, Integer)
 
       version = Prompt.current.versions.find(params[:id])
-      restored_instance = version.reify
+      restored_instance = version.reify(allowed_classes: [ Time ])
 
       generic_render(data: restored_instance.save!)
     end

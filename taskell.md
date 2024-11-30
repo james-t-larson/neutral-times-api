@@ -31,10 +31,15 @@
 
 ## To Do
 
-- Get reporting working (logs, and alerts)
 - Get new domains with sub domains working
     * [ ] Point stage.neutraltimes.press pointed at current env
     * [ ] Get neutraltimes.press pointed at current env as well, should not let anyone through
+- Add authentication with api keys.
+    * [ ] If no api key is passed reject with basic auth, do no notify the user
+    * [ ] If api key is passed, but does not find a match, reject with 401 and empty body
+    * [ ] There should be admin api keys
+    * [ ] Should only affect v2/articles and admin routes
+- Get reporting working (logs, and alerts)
 - Implement Categories
     * [ ] Make sure to create a v1 folder for this
     * [ ] Should be a single endpoint
@@ -42,9 +47,6 @@
     * [ ] When requesting categories, it should get all Articles (for the day) in that category
     * [ ] Should be some main categorues
     * [ ] I don't want to needlessly write articles. See if I can write articles when they are clicked?
-- Prompt should be changed to reduce emotional language.
-    * [ ] The current prompt have content that makes it easy to detect as an ai. 
-    * [ ] The old prompt is to complex. Reduce complexity
 - Event Registry should not create more than 10 articles at a time
 - Github actions should build on merge to main
     > Tests are run locally and in develop before merge to main 
@@ -59,12 +61,12 @@
 
 ## Doing
 
-- Add tests for Prompt modelt
-- Add authentication with api keys.
-    * [ ] If no api key is passed reject with basic auth, do no notify the user
-    * [ ] If api key is passed, but does not find a match, reject with 401 and empty body
-    * [ ] There should be admin api keys
-    * [ ] Should only affect v2/articles and admin routes
+- Add tests for Prompt model
+- bin/brakman should be added to my over commit hook.
+    > This is to make sure that it doesn't fail security checks in the actions
+- Prompt should be changed to reduce emotional language.
+    * [ ] The current prompt have content that makes it easy to detect as an ai. 
+    * [ ] The old prompt is to complex. Reduce complexity
 
 ## Done
 
