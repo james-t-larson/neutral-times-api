@@ -61,9 +61,6 @@
 
 ## Doing
 
-- Add tests for Prompt model
-- bin/brakman should be added to my over commit hook.
-    > This is to make sure that it doesn't fail security checks in the actions
 - Prompt should be changed to reduce emotional language.
     * [ ] The current prompt have content that makes it easy to detect as an ai. 
     * [ ] The old prompt is to complex. Reduce complexity
@@ -145,3 +142,6 @@
     * [x] Add columns for sentiment
 - Add management endpoint for prompts
     * [ ] Implment prompts spec in README
+- Add tests for Prompt model
+- bin/brakman should be added to my over commit hook.
+    > This is to make sure that it doesn't fail security checks in the actions
