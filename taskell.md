@@ -63,7 +63,8 @@
 
 - Prompt should be changed to reduce emotional language.
     * [ ] The current prompt have content that makes it easy to detect as an ai. 
-    * [ ] The old prompt is to complex. Reduce complexity
+    * [x] The old prompt is to complex. Reduce complexity
+- When updating a prompt it should set sentiment and usage to back to 0
 
 ## Done
 
