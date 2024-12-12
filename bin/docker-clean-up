@@ -11,10 +11,6 @@ docker rm $(docker ps -aq)
 echo "Removing all images..."
 docker rmi -f $(docker images -q)
 
-# Remove all volumes
-echo "Removing all volumes..."
-docker volume rm $(docker volume ls -q)
-
 # Remove all build cache
 echo "Clearing build cache..."
 docker builder prune -af

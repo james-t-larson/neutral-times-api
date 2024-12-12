@@ -19,7 +19,7 @@ PreCommit:
   RuboCop:
     enabled: true
     required_executable: 'bin/rubocop'
-    description: 'Analyzing Ruby code with RuboCop'
+    description: 'Analyzing Ruby code with RuboCop...'
     command: ['bin/rubocop', '-f', 'github']
     exclude:
       - '.yml'  
@@ -27,7 +27,17 @@ PreCommit:
   RSpec:
     enabled: true
     command: ['bundle', 'exec', 'rspec']
-    description: 'Running RSpec tests'
+    description: 'Running RSpec tests...'
+
+  CustomCoverageCheck:
+    enabled: true
+    description: 'Check that test coverage does not fall below 17%... '
+    command: ['bin/check_coverage']
+
+  VulnerabilityScan:
+    enabled: true
+    description: 'Checking for new vulnerabilities...'
+    command: ['bin/brakeman']
 
 #  TrailingWhitespace:
 #    enabled: true

@@ -1,53 +1,69 @@
 ## Long-Term Goals
 
+- Add Gem for readibility
+    > Can be used to guage the performance of a prompt
+    * [ ] Add column to track the current prompts readibility
 - Integrate with a fact checker
     > Can use the responses from this as a way to train the assistant with fine tuning.
     * [ ] Learn about different fact checkers that I can integrate with
+    * [ ] Add column to prompts table to track factuality
 - Integrate with some kind of plagarism checker
     > Need to make sure that these are effective.
     > Can use the responses from this as a way to train the assistant with fine tuning.
+    * [ ] Add column to prompts table to track plagerism failures
+- There needs to be able to mark a certain article as bad, and maybe a  check list for how?
 - Integrate with Mozilla TTS
     > I would like the news read to me. Check out Mozilla TTS and see if it's good enough for this
 - User Profiles need to be defined
     > Sessions are needed for invites, no need for preferences for mvp
-- Add event search
-    > If no similar events are found it should write one.
 - Use Git integration with SimpleCov to ensure that any change has tests written
     > simplecov-icov has a tool that can check tests for only changed files. this should ensure nearly 100% test coverage and catch anything that isn't tested
-- Images should mainly be sketches
-- Implement Custom Categories
-    > Custom Categories should be something before new categories suggestions 
 - Switch to an open source LLM
+- Images should mainly be sketches
+- Integrate with a citation machine for sources
+    > There is a gem called citeproc-ruby that might work. This would be good for getting all the articles around a specific event and putting them into sources for the article
+- Add Morning Brief
+    > This could be done with integrating with weather and traffic apis. Then write a summary on that. I could also include an estimated time to work. If there is a difference outside the norm, then it could notify me. 
+- Implment some kind of bias detection
+    * [ ] Add column to Prompts table to track bais failures
+- Add event search
+    > If no similar events are found it should write one.
 
 ## To Do
 
-- Complete Tests for the Article Controller
-    > There are features and things that are not tested
-    * [ ] Should not be able to request articles for the future
-- Implment category filter to articles endpoint
-    > The user should be able to request business or political articles. 
-    * [ ] Should write 10 political and 10 business related articles
-- Link taskell and the github project
+- Get new domains with sub domains working
+    * [ ] Point stage.neutraltimes.press pointed at current env
+    * [ ] Get neutraltimes.press pointed at current env as well, should not let anyone through
+- Add authentication with api keys.
+    * [ ] If no api key is passed reject with basic auth, do no notify the user
+    * [ ] If api key is passed, but does not find a match, reject with 401 and empty body
+    * [ ] There should be admin api keys
+    * [ ] Should only affect v2/articles and admin routes
+- Get reporting working (logs, and alerts)
+- Implement Categories
+    * [ ] Make sure to create a v1 folder for this
+    * [ ] Should be a single endpoint
+    * [ ] Add category param to Article V2
+    * [ ] When requesting categories, it should get all Articles (for the day) in that category
+    * [ ] Should be some main categorues
+    * [ ] I don't want to needlessly write articles. See if I can write articles when they are clicked?
+- Event Registry should not create more than 10 articles at a time
 - Github actions should build on merge to main
     > Tests are run locally and in develop before merge to main 
 - Add Lazydocker to nvim
-- Prod should not be using seed data
 - Update swagger so that it points at the correct domain depending on the env
     * [ ] Need to get around basic auth in dev somehow
     * [ ] 
 - Complete Tests for OpenAi Service
 - Complete Tests for Event Registry
-- Complete Tests for Generation Service
 - Get Lazydocker working in AWS instance. Can't even get into rails c without googling
-- Move prompt to database
-- Persist database as a volume in the docker-compose file.
-    > This is the reason that the database is lost when docker-compose down is run
+- Complete Tests for Generation Service
 
 ## Doing
 
 - Prompt should be changed to reduce emotional language.
     * [ ] The current prompt have content that makes it easy to detect as an ai. 
-    * [ ] The old prompt is to complex. Reduce complexity
+    * [x] The old prompt is to complex. Reduce complexity
 
 ## Done
 
@@ -100,3 +116,33 @@
     * [x] Get top articles from Articles endpoint
     * [x] Pass article content into chat gpt to rewrite
     * [x] Add api key to secrets
+- Complete Tests for the Article Controller
+    > There are features and things that are not tested
+    * [x] Should not be able to request articles for the future
+    * [ ] 
+- Prod should not be using seed data
+- Persist database as a volume in the docker-compose file.
+    > This is the reason that the database is lost when docker-compose down is run
+- Link taskell and the github project
+- Get a domain
+- Show Articles from yesterday if no articles were generated today
+    > Use the application controller to define a single wrapper for content. anything passed into this might be called data:
+    * [x] define v2 artciles
+    * [x] content should be wrapped in an object so messages can be sent to the client
+    * [x] send error http when content is old
+    * [x] needs to handle the initial creation of the project. if there are no articles at all
+- Define feature spec
+- Fix issue with generating articles at weird times or not at all
+    * [x] Add better logs 
+    * [x] Remove mid day generation. no need for that
+- Add Gem for semetality
+    > Can be used for tracking the performance of a prompt
+- Implement Prompt Versioning
+    * [x] Move Prompt into DB
+    * [x] Add columns for sentiment
+- Add management endpoint for prompts
+    * [ ] Implment prompts spec in README
+- Add tests for Prompt model
+- bin/brakman should be added to my over commit hook.
+    > This is to make sure that it doesn't fail security checks in the actions
+- When updating a prompt it should set sentiment and usage to back to 0

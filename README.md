@@ -1,6 +1,6 @@
-# Neutral News Gen
+# Neutral Times Gen
 
-**Neutral News Gen** is an automated platform that uses AI (powered by GPT) to gather and generate unbiased news articles based on the latest events. The system queries online sources every 12 hours to create dynamic, neutral news stories.
+**Neutral Times Gen** is an automated platform that uses AI (powered by GPT) to gather and generate unbiased news articles based on the latest events. The system queries online sources every 12 hours to create dynamic, neutral news stories.
 
 ---
 

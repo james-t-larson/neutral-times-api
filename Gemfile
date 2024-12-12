@@ -44,13 +44,21 @@ gem "httparty"
 
 gem "json-schema"
 
-gem "rspec-rails", "6.1.1"
+gem "rspec-rails", "7.1.0"
 
 gem "rswag"
 
 gem "rails_param"
 
-gem "shoulda-matchers", "~> 5.0"
+gem "shoulda-matchers", "~> 6.4"
+
+gem "paper_trail", "~> 16.0"
+
+gem "sentimental"
+
+gem "diffy"
+
+gem "simplecov"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -78,3 +86,5 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "simplecov-json", "~> 0.2.3"
