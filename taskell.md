@@ -64,7 +64,6 @@
 - Prompt should be changed to reduce emotional language.
     * [ ] The current prompt have content that makes it easy to detect as an ai. 
     * [x] The old prompt is to complex. Reduce complexity
-- When updating a prompt it should set sentiment and usage to back to 0
 
 ## Done
 
@@ -146,3 +145,4 @@
 - Add tests for Prompt model
 - bin/brakman should be added to my over commit hook.
     > This is to make sure that it doesn't fail security checks in the actions
+- When updating a prompt it should set sentiment and usage to back to 0
