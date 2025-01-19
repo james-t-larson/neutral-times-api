@@ -1,3 +1,5 @@
+# Endpoints for clients
+
 ## 1. Fetch All Categories
 
 **GET** `/categories`
@@ -27,13 +29,38 @@
     "description": "All about tech news and updates."
   }
 
-## Admin Endpoints
+## 3. Fetch articles for a specific category
 
-*These endpoints are restricted to administrative users and require appropriate authentication. They allow for creating, updating, deleting, and retrieving categories.*
+**GET** `/categories/{id}/articles`
+
+- **Description**: Retrieve all articles associated with a specific category by its ID.
+- **Response**:
+  ```json
+  [
+    {
+      "id": 101,
+      "title": "Tech Innovations of 2024",
+      "slug": "tech-innovations-2024",
+      "author": "Jane Doe",
+      "publishedAt": "2024-11-25T08:30:00Z"
+    },
+    {
+      "id": 102,
+      "title": "The Future of AI",
+      "slug": "future-of-ai",
+      "author": "John Smith",
+      "publishedAt": "2024-11-26T09:00:00Z"
+    }
+  ]
+  ```
 
 ---
 
-### 3. Fetch All Categories (Admin)
+# Admin Endpoints
+
+*These endpoints are restricted to administrative users and require appropriate authentication. They allow for creating, updating, deleting, and retrieving categories.*
+
+## 4. Fetch All Categories (Admin)
 
 **GET** `/admin/categories`
 
@@ -59,7 +86,7 @@
     }
   ]
 
-### 4. Fetch a Single Category (Admin)
+## 4. Fetch a Single Category (Admin)
 
 **GET** `/admin/categories/{id}`
 
@@ -75,7 +102,7 @@
     "updatedAt": "2024-11-22T16:10:00Z"
   }
 
-### 5. Create a New Category
+## 5. Create a New Category
 
 **POST** `/admin/categories`
 
@@ -89,17 +116,17 @@
   }
 
 - **Response**:
+  ```json
+  {
+    "id": 6,
+    "name": "Science",
+    "slug": "science",
+    "description": "Articles and updates related to science.",
+    "createdAt": "2024-11-25T08:30:00Z",
+    "updatedAt": "2024-11-25T08:30:00Z"
+  }
 
-{
-  "id": 6,
-  "name": "Science",
-  "slug": "science",
-  "description": "Articles and updates related to science.",
-  "createdAt": "2024-11-25T08:30:00Z",
-  "updatedAt": "2024-11-25T08:30:00Z"
-}
-
-### 6. Update an Existing Category
+## 6. Update an Existing Category
 
 **PUT** `/admin/categories/{id}`
 
@@ -112,19 +139,18 @@
     "description": "Global news and international updates."
   }
 
-
 - **Response**:
+  ```json
+  {
+    "id": 1,
+    "name": "World News",
+    "slug": "world-news",
+    "description": "Global news and international updates.",
+    "createdAt": "2024-01-15T10:00:00Z",
+    "updatedAt": "2024-11-25T09:00:00Z"
+  }
 
-{
-  "id": 1,
-  "name": "World News",
-  "slug": "world-news",
-  "description": "Global news and international updates.",
-  "createdAt": "2024-01-15T10:00:00Z",
-  "updatedAt": "2024-11-25T09:00:00Z"
-}
-
-### 7. Delete a Category
+## 7. Delete a Category
 
 **DELETE** `/admin/categories/{id}`
 
