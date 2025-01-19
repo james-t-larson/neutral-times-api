@@ -16,8 +16,6 @@
     > I would like the news read to me. Check out Mozilla TTS and see if it's good enough for this
 - User Profiles need to be defined
     > Sessions are needed for invites, no need for preferences for mvp
-- Use Git integration with SimpleCov to ensure that any change has tests written
-    > simplecov-icov has a tool that can check tests for only changed files. this should ensure nearly 100% test coverage and catch anything that isn't tested
 - Switch to an open source LLM
 - Images should mainly be sketches
 - Integrate with a citation machine for sources
@@ -31,6 +29,7 @@
 
 ## To Do
 
+- BUG: Multiple articles are created with same article title, but different content
 - Get new domains with sub domains working
     * [ ] Point stage.neutraltimes.press pointed at current env
     * [ ] Get neutraltimes.press pointed at current env as well, should not let anyone through
@@ -62,7 +61,7 @@
 ## Doing
 
 - Prompt should be changed to reduce emotional language.
-    * [ ] The current prompt have content that makes it easy to detect as an ai. 
+    * [x] The current prompt have content that makes it easy to detect as an ai. 
     * [x] The old prompt is to complex. Reduce complexity
 
 ## Done
@@ -146,3 +145,5 @@
 - bin/brakman should be added to my over commit hook.
     > This is to make sure that it doesn't fail security checks in the actions
 - When updating a prompt it should set sentiment and usage to back to 0
+- Use Git integration with SimpleCov to ensure that any change has tests written
+    > simplecov-icov has a tool that can check tests for only changed files. this should ensure nearly 100% test coverage and catch anything that isn't tested
