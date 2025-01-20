@@ -1,6 +1,6 @@
-# Neutral Times Gen
+# Neutral Times API
 
-**Neutral Times Gen** is an automated platform that uses AI (powered by GPT) to gather and generate unbiased news articles based on the latest events. The system queries online sources every 12 hours to create dynamic, neutral news stories.
+**Neutral Times API** is an automated platform that uses AI (powered by GPT) to gather and generate unbiased news articles based on the latest events. The system queries online sources every 12 hours to create dynamic, neutral news stories.
 
 ---
 
@@ -31,8 +31,8 @@
 1. **Clone the repository**:
 
     ```bash
-    git clone https://github.com/yourusername/neutral-news-gen.git
-    cd neutral-news-gen
+    git clone https://github.com/yourusername/neutral-news-api.git
+    cd neutral-news-api
     ```
 
 2. **Install dependencies**:

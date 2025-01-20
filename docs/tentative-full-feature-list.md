@@ -119,5 +119,3 @@
   - Use A/B testing tools for different content formats to optimize user engagement.
   - Should track prompt performance with metrics on sentimentality, factuality and readability
 
-###
-

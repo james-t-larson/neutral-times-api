@@ -30,6 +30,9 @@
 ## To Do
 
 - BUG: Multiple articles are created with same article title, but different content
+    * [ ] The problem is coming from the event registry,
+    * [ ] 
+    * [ ] x
 - Get new domains with sub domains working
     * [ ] Point stage.neutraltimes.press pointed at current env
     * [ ] Get neutraltimes.press pointed at current env as well, should not let anyone through
@@ -39,13 +42,6 @@
     * [ ] There should be admin api keys
     * [ ] Should only affect v2/articles and admin routes
 - Get reporting working (logs, and alerts)
-- Implement Categories
-    * [ ] Make sure to create a v1 folder for this
-    * [ ] Should be a single endpoint
-    * [ ] Add category param to Article V2
-    * [ ] When requesting categories, it should get all Articles (for the day) in that category
-    * [ ] Should be some main categorues
-    * [ ] I don't want to needlessly write articles. See if I can write articles when they are clicked?
 - Event Registry should not create more than 10 articles at a time
 - Github actions should build on merge to main
     > Tests are run locally and in develop before merge to main 
@@ -60,9 +56,11 @@
 
 ## Doing
 
-- Prompt should be changed to reduce emotional language.
-    * [x] The current prompt have content that makes it easy to detect as an ai. 
-    * [x] The old prompt is to complex. Reduce complexity
+- Implement Categories
+    * [ ] Make sure to create a v1 folder for this
+    * [ ] Add category param to Article V2
+    * [ ] Implment Sports, Finance, Technology, Civics, Relavent,
+    * [ ] Make sure that categories and places match up, I don't care about the housing market in Montana, but I car about governance there for example
 
 ## Done
 
@@ -147,3 +145,6 @@
 - When updating a prompt it should set sentiment and usage to back to 0
 - Use Git integration with SimpleCov to ensure that any change has tests written
     > simplecov-icov has a tool that can check tests for only changed files. this should ensure nearly 100% test coverage and catch anything that isn't tested
+- Prompt should be changed to reduce emotional language.
+    * [x] The current prompt have content that makes it easy to detect as an ai. 
+    * [x] The old prompt is to complex. Reduce complexity
