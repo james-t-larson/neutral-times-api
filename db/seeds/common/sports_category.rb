@@ -1,5 +1,5 @@
-Categories.destory_all
-Categories.create(
+Category.destroy_all
+Category.create(
   [
     {
       name: "Sports",
@@ -15,12 +15,8 @@ Categories.create(
         {
           name: "dmoz/Sports/Hockey",
           locations_attributes: [ { name: 'United States' }, { name: 'Canada' } ]
-        },
-        {
-          name: "dmoz/Society/Issues",
-          locations_attributes: [ { name: 'United States' }, { name: 'Canada' } ]
         }
       ]
     }
   ]
-).save
+)

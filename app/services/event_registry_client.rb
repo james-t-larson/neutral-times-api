@@ -72,6 +72,11 @@ class EventRegistryClient
                   },
 
                   # Civics
+                  #
+                  {
+                    name: "dmoz/Society/Issues",
+                    locations_attributes: [ { name: "United States" }, { name: "Canada" } ]
+                  },
                   {
                     "categoryUri": "dmoz/Society/Crime"
                   },

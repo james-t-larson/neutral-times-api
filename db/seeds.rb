@@ -12,10 +12,19 @@
 
 puts "Starting seeding process..."
 
-common_seeds = Rails.root.join("db", "seeds", "common.rb")
-require common_seeds if File.exist?(common_seeds)
+def run_seeds(files)
+  Dir[Rails.root.join(files)].each do |seed|
+    load seed
+  end
+end
 
-environment_seeds = Rails.root.join("db", "seeds", "#{Rails.env}.rb")
-require environment_seeds if File.exist?(environment_seeds)
+seeds_directories = [
+  'db/seeds/common/*.rb',
+  "db/seeds/#{Rails.env}/*.rb"
+]
+
+for directory in seeds_directories do
+  run_seeds(directory)
+end
 
 puts "Seeding process completed!"
