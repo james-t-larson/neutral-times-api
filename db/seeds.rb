@@ -10,25 +10,12 @@
 #
 # # Clear existing data (optional, if you want to start fresh)
 
-if Rails.env.production?
-  puts "Seeding is disabled in production!"
-  exit
-end
+puts "Starting seeding process..."
 
-Article.destroy_all
+common_seeds = Rails.root.join("db", "seeds", "common.rb")
+require common_seeds if File.exist?(common_seeds)
 
-article1 = Article.create!(
-  title: "Breaking News: Ruby on Rails Rocks!",
-  summary: "A detailed article about how Ruby on Rails is a powerful web development framework.",
-  content: "TESTING",
-  sources: "TESTING"
-)
+environment_seeds = Rails.root.join("db", "seeds", "#{Rails.env}.rb")
+require environment_seeds if File.exist?(environment_seeds)
 
-article2 = Article.create!(
-  title: "The Future of AI in Web Development",
-  summary: "Exploring how AI is changing the web development landscape, with practical examples.",
-  content: "TESTING",
-  sources: "TESTING"
-)
-
-puts "Seed data successfully created!"
+puts "Seeding process completed!"

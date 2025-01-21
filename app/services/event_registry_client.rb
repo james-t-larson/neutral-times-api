@@ -71,19 +71,6 @@ class EventRegistryClient
                     "categoryUri": "dmoz/Business/Arts_and_Entertainment/Gaming"
                   },
 
-                  # Sports
-                  {
-                    "categoryUri": "dmoz/Sports/Football/American"
-                  },
-                  {
-                    "categoryUri": "dmoz/Sports/Football/Rugby_Union"
-                  },
-                  {
-                    "categoryUri": "dmoz/Sports/Hockey"
-                  },
-                  {
-                    "categoryUri": "dmoz/Society/Issues"
-                  },
                   # Civics
                   {
                     "categoryUri": "dmoz/Society/Crime"
