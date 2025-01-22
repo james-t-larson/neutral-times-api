@@ -57,10 +57,12 @@
 ## Doing
 
 - Implement Categories
-    * [ ] Make sure to create a v1 folder for this
+    * [x] Thie is the second version of the api
     * [ ] Add category param to Article V2
-    * [ ] Implment Sports, Finance, Technology, Civics, Relavent,
-    * [ ] Make sure that categories and places match up, I don't care about the housing market in Montana, but I car about governance there for example
+    * [x] Implment Sports, Finance, Technology, Civics, Relavent,
+    * [x] Make sure that categories and places match up, I don't care about the housing market in Montana, but I car about governance there for example
+    * [ ] 
+    * [ ] 
 
 ## Done
 

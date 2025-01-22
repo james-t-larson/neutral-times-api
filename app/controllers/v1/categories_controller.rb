@@ -1,2 +1,2 @@
-class V1::CategoriesController < ApplicationController
+class V1::CategoriesController < CategoriesBaseController
 end

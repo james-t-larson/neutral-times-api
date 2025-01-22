@@ -1,5 +1,5 @@
 class CategoriesBaseController < ApplicationController
-  before_action :set_category, only: [ :show, :update, :destroy ]
+  before_action :set_category, only: [ :show ]
 
   def index
     @categories = Category.all

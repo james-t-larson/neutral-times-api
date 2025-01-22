@@ -4,14 +4,11 @@ Rails.application.routes.draw do
 
   resources :articles, only: [ :index, :show ]
 
-  namespace :v1 do
+  namespace :v2 do
+    resources :articles, only: [ :index, :show ]
     resources :categories, only: [ :index, :show ] do
       resources :articles, only: [ :index ], controller: "articles"
     end
-  end
-
-  namespace :v2 do
-    resources :articles, only: [ :index, :show ]
   end
 
   namespace :admin do

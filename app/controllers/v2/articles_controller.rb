@@ -2,11 +2,13 @@ class V2::ArticlesController < ::ArticlesController
   def index
     param!(:date, String); validate_date
 
+    category = Category.find_by_id(params[:category_id])
+    category_filter = { category_id: category&.id } unless category.nil?
     if params[:date]
-      date = DateTime.iso8601(params[:date])
-      articles = Article.published_on(date)
+      date = DateTime.iso8601(category_filter)
+      articles = Article.where(category&.id).published_on(date)
     else
-      articles = Article.last_batch_published
+      articles = Article.where(category_filter).last_batch_published
     end
 
     no_recent_articles = DateTime.now.beginning_of_day > articles.last.created_at
