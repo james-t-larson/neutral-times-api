@@ -36,11 +36,6 @@
 - Get new domains with sub domains working
     * [ ] Point stage.neutraltimes.press pointed at current env
     * [ ] Get neutraltimes.press pointed at current env as well, should not let anyone through
-- Add authentication with api keys.
-    * [ ] If no api key is passed reject with basic auth, do no notify the user
-    * [ ] If api key is passed, but does not find a match, reject with 401 and empty body
-    * [ ] There should be admin api keys
-    * [ ] Should only affect v2/articles and admin routes
 - Get reporting working (logs, and alerts)
 - Event Registry should not create more than 10 articles at a time
 - Github actions should build on merge to main
@@ -58,11 +53,13 @@
 
 - Implement Categories
     * [x] Thie is the second version of the api
-    * [ ] Add category param to Article V2
+    * [x] Add category param to Article V2
     * [x] Implment Sports, Finance, Technology, Civics, Relavent,
     * [x] Make sure that categories and places match up, I don't care about the housing market in Montana, but I car about governance there for example
-    * [ ] 
-    * [ ] 
+    * [ ] Use the generic response method for categories
+    * [ ] Make needed changes to event registry service
+    * [ ] Implement admin endpoints.
+    * [ ] Update migrations to not expect null, add validations
 
 ## Done
 
@@ -150,3 +147,8 @@
 - Prompt should be changed to reduce emotional language.
     * [x] The current prompt have content that makes it easy to detect as an ai. 
     * [x] The old prompt is to complex. Reduce complexity
+- Add authentication with api keys.
+    * [ ] If no api key is passed reject with basic auth, do no notify the user
+    * [ ] If api key is passed, but does not find a match, reject with 401 and empty body
+    * [ ] There should be admin api keys
+    * [ ] Should only affect v2/articles and admin routes

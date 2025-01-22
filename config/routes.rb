@@ -12,7 +12,10 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :categories
+    resources :categories do
+      resources :articles, controller: "articles"
+    end
+
     resources :prompts do
       collection do
         get "versions"
