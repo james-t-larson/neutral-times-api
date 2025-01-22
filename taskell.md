@@ -29,6 +29,7 @@
 
 ## To Do
 
+- Fix tests, get pre-commit hook working, even when another person pulls the project
 - BUG: Multiple articles are created with same article title, but different content
     * [ ] The problem is coming from the event registry,
     * [ ] 

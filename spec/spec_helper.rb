@@ -30,7 +30,7 @@ SimpleCov.start do
 end
 
 SimpleCov.formatters = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::JSONFormatter  # For machine-readable format
+  SimpleCov::Formatter::JSONFormatter
 ])
 
 RSpec.configure do |config|
