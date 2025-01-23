@@ -7,7 +7,7 @@ Category.create(
       name: name,
       position: 2,
       locations_attributes: [ { name: "Colorado" }, { name: "Oregon" }, { name: "British_Columbia" } ],
-      sub_categories_attributes: [
+      external_categories_attributes: [
         {
           name: "dmoz/Health/Mental_Health"
         },

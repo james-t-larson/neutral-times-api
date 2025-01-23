@@ -1,6 +1,6 @@
-class CreateOriginalArticles < ActiveRecord::Migration[7.2]
+class CreateExternalArticles < ActiveRecord::Migration[7.2]
   def change
-    create_table :original_articles do |t|
+    create_table :external_articles do |t|
       t.string :title, null: false
       t.text :body, null: false
       t.integer :event_id, null: false
@@ -8,6 +8,7 @@ class CreateOriginalArticles < ActiveRecord::Migration[7.2]
       t.string :source
       t.string :url, null: false
       t.string :location
+      t.references :category, null: false, foreign_key: true
     end
   end
 end

@@ -6,8 +6,11 @@ Category.create(
     {
       name: name,
       position: 5,
-      locations_attributes: [ { name: 'United States' }, { name: 'Canada' } ],
-      sub_categories_attributes: [
+      locations_attributes: [ { name: 'United_States' }, { name: 'Canada' } ],
+      external_categories_attributes: [
+        {
+          name: "dmoz/Sports/Football/Canadian"
+        },
         {
           name: "dmoz/Sports/Football/American"
         },

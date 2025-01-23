@@ -21,14 +21,12 @@ ActiveRecord::Schema[7.2].define(version: 2025_01_21_214610) do
     t.datetime "updated_at", null: false
     t.text "content"
     t.string "sources"
-    t.integer "original_article_id"
+    t.integer "external_article_id"
     t.integer "category_id"
     t.string "image"
     t.float "sentiment_score", default: 0.0
     t.integer "event_id"
     t.string "location"
-    t.index ["category_id"], name: "index_articles_on_category_id"
-    t.index ["original_article_id"], name: "index_articles_on_original_article_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -44,11 +42,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_01_21_214610) do
     t.index ["location_id"], name: "index_categories_locations_on_location_id"
   end
 
-  create_table "locations", force: :cascade do |t|
-    t.string "name"
-  end
-
-  create_table "original_articles", force: :cascade do |t|
+  create_table "external_articles", force: :cascade do |t|
     t.string "title", null: false
     t.text "body", null: false
     t.integer "event_id", null: false
@@ -56,6 +50,26 @@ ActiveRecord::Schema[7.2].define(version: 2025_01_21_214610) do
     t.string "source"
     t.string "url", null: false
     t.string "location"
+    t.bigint "category_id", null: false
+    t.index ["category_id"], name: "index_external_articles_on_category_id"
+  end
+
+  create_table "external_categories", force: :cascade do |t|
+    t.string "name", null: false
+    t.bigint "category_id", null: false
+    t.index ["category_id"], name: "index_external_categories_on_category_id"
+  end
+
+  create_table "external_categories_locations", force: :cascade do |t|
+    t.bigint "external_category_id", null: false
+    t.bigint "location_id", null: false
+    t.index ["external_category_id", "location_id"], name: "idx_on_external_category_id_location_id_c47a75df7e", unique: true
+    t.index ["external_category_id"], name: "index_external_categories_locations_on_external_category_id"
+    t.index ["location_id"], name: "index_external_categories_locations_on_location_id"
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "name"
   end
 
   create_table "prompts", force: :cascade do |t|
@@ -65,20 +79,6 @@ ActiveRecord::Schema[7.2].define(version: 2025_01_21_214610) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["text"], name: "index_prompts_on_text"
-  end
-
-  create_table "sub_categories", force: :cascade do |t|
-    t.string "name", null: false
-    t.bigint "category_id", null: false
-    t.index ["category_id"], name: "index_sub_categories_on_category_id"
-  end
-
-  create_table "sub_categories_locations", force: :cascade do |t|
-    t.bigint "sub_category_id", null: false
-    t.bigint "location_id", null: false
-    t.index ["location_id"], name: "index_sub_categories_locations_on_location_id"
-    t.index ["sub_category_id", "location_id"], name: "idx_on_sub_category_id_location_id_1ffeeab07b", unique: true
-    t.index ["sub_category_id"], name: "index_sub_categories_locations_on_sub_category_id"
   end
 
   create_table "versions", force: :cascade do |t|
@@ -92,10 +92,11 @@ ActiveRecord::Schema[7.2].define(version: 2025_01_21_214610) do
   end
 
   add_foreign_key "articles", "categories"
-  add_foreign_key "articles", "original_articles"
+  add_foreign_key "articles", "external_articles"
   add_foreign_key "categories_locations", "categories"
   add_foreign_key "categories_locations", "locations"
-  add_foreign_key "sub_categories", "categories"
-  add_foreign_key "sub_categories_locations", "locations"
-  add_foreign_key "sub_categories_locations", "sub_categories"
+  add_foreign_key "external_articles", "categories"
+  add_foreign_key "external_categories", "categories"
+  add_foreign_key "external_categories_locations", "external_categories"
+  add_foreign_key "external_categories_locations", "locations"
 end

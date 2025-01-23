@@ -57,10 +57,12 @@
     * [x] Add category param to Article V2
     * [x] Implment Sports, Finance, Technology, Civics, Relavent,
     * [x] Make sure that categories and places match up, I don't care about the housing market in Montana, but I car about governance there for example
-    * [ ] Use the generic response method for categories
     * [ ] Make needed changes to event registry service
+    * [ ] Use the generic response method for categories
     * [ ] Implement admin endpoints.
     * [ ] Update migrations to not expect null, add validations
+    * [ ] Rename sub_categories to external categories
+    * [ ] 
 
 ## Done
 

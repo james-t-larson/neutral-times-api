@@ -7,7 +7,7 @@ Category.create(
       name: name,
       position: 4,
       locations_attributes: [ { name: 'United States' }, { name: 'Canada' } ],
-      sub_categories_attributes: [
+      external_categories_attributes: [
         {
           name: "news/Technology"
         },
