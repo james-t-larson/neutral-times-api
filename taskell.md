@@ -30,6 +30,7 @@
 ## To Do
 
 - Fix tests, get pre-commit hook working, even when another person pulls the project
+- Add admin endpoint for to trigger article generation job
 - BUG: Multiple articles are created with same article title, but different content
     * [ ] The problem is coming from the event registry,
     * [ ] 
@@ -38,7 +39,6 @@
     * [ ] Point stage.neutraltimes.press pointed at current env
     * [ ] Get neutraltimes.press pointed at current env as well, should not let anyone through
 - Get reporting working (logs, and alerts)
-- Event Registry should not create more than 10 articles at a time
 - Github actions should build on merge to main
     > Tests are run locally and in develop before merge to main 
 - Add Lazydocker to nvim
@@ -61,8 +61,10 @@
     * [ ] Use the generic response method for categories
     * [ ] Implement admin endpoints.
     * [ ] Update migrations to not expect null, add validations
-    * [ ] Rename sub_categories to external categories
-    * [ ] 
+    * [x] Rename sub_categories to external categories
+    * [x] Implment Serializers, organize directories
+    * [x] Write Data Preperations Service
+    * [ ] Add job for managing calls to all te different services
 
 ## Done
 
