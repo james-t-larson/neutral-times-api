@@ -1,5 +1,8 @@
 ## Long-Term Goals
 
+- Image resizing needs to be added to support a responsive layout
+- Remove Swagger, find yaml to mark down converter
+- Switch to an open source LLM
 - Add Gem for readibility
     > Can be used to guage the performance of a prompt
     * [ ] Add column to track the current prompts readibility
@@ -13,7 +16,6 @@
     * [ ] Add column to prompts table to track plagerism failures
 - User Profiles need to be defined
     > Sessions are needed for invites, no need for preferences for mvp
-- Switch to an open source LLM
 - Images should mainly be sketches
     * [ ] Find image generation ai to convert images to sketches
 - Integrate with a citation machine for sources
@@ -31,7 +33,7 @@
     * [ ] Shold retry on failure
 - Fix tests, get pre-commit hook working, even when another person pulls the project
 - Get new domains with sub domains working
-    * [ ] Point stage.neutraltimes.press pointed at current env
+    * [ ] Point staging.neutraltimes.press pointed at current env
     * [ ] Get neutraltimes.press pointed at current env as well, should not let anyone through
 - Get reporting working (logs, and alerts)
 - Github actions should build on merge to main

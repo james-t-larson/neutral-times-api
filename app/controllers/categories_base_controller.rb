@@ -2,8 +2,8 @@ class CategoriesBaseController < ApplicationController
   before_action :set_category, only: [ :show ]
 
   def index
-    @categories = Category.all
-    generic_render(data: @categories)
+    @categories = Category.all.
+    generic_render(data: @categories).order(:position)
   end
 
   def show
