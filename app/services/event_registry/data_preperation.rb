@@ -1,33 +1,33 @@
 module Services
   module EventRegistry
     class DataPreperation
-      def prepare
-        set_internal_categories
-        sorted = sort(@internal_categories)
-        grouped = group(sorted)
-        serialized_locations = Serializers::EventRegistry::Location(grouped.first.locations)
-        serialized_categories = Serializers::EventRegistry::Categories(grouped)
-
-        {
-          locations: serialized_locations,
-          categories: serialized_categories
-        }
+      def self.prepare(category)
+        sorted = sort(category.external_categories)
+        grouped = group_and_serialize(sorted, category)
+        grouped
       end
 
-      def set_internal_categories
-        @internal_categories ||= Category.first
-      end
-
-      def self.group(categories)
+      def self.group_and_serialize(sorted, category)
         grouped_categories = []
 
         window_start = 0
         group_count = 0
-        0.upto(categories.length - 2).each do |index|
-          next_length = categories[index + 1].locations.length
-          if next_length > categories[index].locations.length
+        puts sorted.length - 2
+        0.upto(sorted.length - 1).each do |index|
+          next_length = sorted[index + 1]&.locations&.length
+          current_length = sorted[index].locations.length
+          if index == sorted.length - 1 || next_length > current_length
+            locations = category.locations.to_a + sorted[index].locations.to_a
+            category_group = sorted[window_start..index]
+            serialized_categories = Serializers::EventRegistry::Category.serialize(category_group)
+            serialized_locations = Serializers::EventRegistry::Location.serialize(locations)
 
-            grouped_categories[group_count] = categories[window_start..(index + 1)]
+            grouped_categories[group_count] = {
+              internal_category_id: category.id,
+              external_categories: serialized_categories,
+              locations: serialized_locations
+            }
+
             group_count += 1
             window_start = index + 1
           end

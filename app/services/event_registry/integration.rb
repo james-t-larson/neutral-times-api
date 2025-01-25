@@ -8,21 +8,21 @@ module Services
         @api_key = api_key || Rails.application.credentials.dig(:event_registry, :api_key)
       end
 
-      def fetch_articles(external_categories, locations)
+      def fetch_articles(group = {})
         options = {
           body: {
             query: {
               "$query": {
                 "$and": [
                   {
-                    "$or": external_categories
+                    "$or": group[:external_categories]
                   },
                   {
-                    "$or": locations
+                    "$or": group[:locations]
                   },
                   {
-                    "dateStart": Date.today.iso8601(),
-                    "dateEnd": Date.today.iso8601(),
+                    "dateStart": Date.yesterday.iso8601(),
+                    "dateEnd": Date.yesterday.iso8601(),
                     "lang": "eng"
                   }
                 ]
@@ -30,9 +30,9 @@ module Services
               "$filter": {
                 "hasEvent": "skipArticlesWithoutEvent",
                 "startSourceRankPercentile": 0,
-                "endSourceRankPercentile": 30,
-                "minSentiment": -0.2,
-                "maxSentiment": 0.4,
+                "endSourceRankPercentile": 40,
+                "minSentiment": -0.3,
+                "maxSentiment": 1,
                 "isDuplicate": "skipDuplicates"
               }
             },
@@ -50,7 +50,26 @@ module Services
         }
 
         resp = self.class.post("/article/getArticles", options)
-        resp.dig("articles", "results")&.first(10)
+        articles = resp.dig("articles", "results")
+
+        @external_articles = ExternalArticle.pluck(:title).each_with_object({}) do |title, hash|
+          hash[title] = true
+        end
+
+        articles.filter_map do |article|
+          {
+            title: article["title"],
+            body: article["body"],
+            event_id: article["eventUrl"],
+            relevance: article["relevance"],
+            sentiment: article["sentiment"],
+            source: article.dig("source", "title"),
+            url: article["url"],
+            location: article.dig("location", "label", "eng"),
+            image: article["image"],
+            category_id: group[:internal_category_id]
+          } unless @external_articles[article["title"]]
+        end
       end
     end
   end

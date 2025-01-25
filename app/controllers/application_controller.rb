@@ -6,26 +6,13 @@ class ApplicationController < ActionController::Base
 
   private
 
-  # Renders a standardized JSON response for the application.
-  #
-  # @param data [Hash] The main data payload to include in the response. Defaults to an empty hash.
-  # @param message [String, nil] An optional message describing the result or status. Defaults to nil.
-  # @param code [Integer] An application-specific status code for the response. Defaults to 0.
-  # @param status [Symbol] The HTTP status for the response (e.g., :ok, :not_found, :unprocessable_entity). Defaults to :ok.
-  #
-  # @example Successful response with data
-  #   generic_render(data: { user: { id: 1, name: "John Doe" } }, message: "Success", code: 100, status: :ok)
-  #
-  # @example Error response with a message
-  #   generic_render(message: "Invalid parameters", code: 422, status: :unprocessable_entity)
-  #
   # @note This method is used to enforce consistency in the JSON API responses.
-  def generic_render(data: {}, message: "Success", code: 0, status: :ok)
-    render json: {
-      message: message,
-      code: code,
+  def generic_render(data: {}, message: nil, code: nil, status: nil, **custom_params)
+    render json: custom_params.merge({
+      message: message || "Success",
+      code: code || 0,
       data: data
-    }, status: status
+    }), status: status || :ok
   end
 
   def record_not_found

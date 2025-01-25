@@ -29,6 +29,7 @@
 
 ## To Do
 
+- Request validation should happen in before parsing the request.
 - Fix tests, get pre-commit hook working, even when another person pulls the project
 - Add admin endpoint for to trigger article generation job
 - BUG: Multiple articles are created with same article title, but different content
@@ -53,18 +54,20 @@
 ## Doing
 
 - Implement Categories
+    * [ ] Ensure that the last external batch published is new before generating new articles
+    * [ ] Write endpoint to trigger article generation
+    * [x] Ensure that duplicate articles are caught when retriving articles, there is potential that two categories catch the same article
+    * [x] Add jobs for managing calls to all the different services
     * [x] Thie is the second version of the api
     * [x] Add category param to Article V2
     * [x] Implment Sports, Finance, Technology, Civics, Relavent,
     * [x] Make sure that categories and places match up, I don't care about the housing market in Montana, but I car about governance there for example
-    * [ ] Make needed changes to event registry service
-    * [ ] Use the generic response method for categories
-    * [ ] Implement admin endpoints.
-    * [ ] Update migrations to not expect null, add validations
+    * [x] Make needed changes to event registry service
+    * [x] Use the generic response method for categories
+    * [x] Update migrations to not expect null, add validations
     * [x] Rename sub_categories to external categories
     * [x] Implment Serializers, organize directories
     * [x] Write Data Preperations Service
-    * [ ] Add job for managing calls to all te different services
 
 ## Done
 

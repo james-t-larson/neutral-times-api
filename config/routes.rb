@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :generate_articles, only: [ :create ], controller: "generate_articles"
+
     resources :categories do
       resources :articles, controller: "articles"
     end

@@ -3,19 +3,17 @@ class CategoriesBaseController < ApplicationController
 
   def index
     @categories = Category.all
-    render json: @categories
+    generic_render(data: @categories)
   end
 
   def show
-    render json: @category
+    generic_render(data: @category)
   end
 
   private
 
   def set_category
     @category = Category.find(params[:id])
-  rescue ActiveRecord::RecordNotFound
-    render json: { error: "Category not found" }, status: :not_found
   end
 
   def category_params

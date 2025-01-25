@@ -25,7 +25,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_01_21_214610) do
     t.integer "category_id"
     t.string "image"
     t.float "sentiment_score", default: 0.0
-    t.integer "event_id"
+    t.string "event_id"
     t.string "location"
   end
 
@@ -45,12 +45,16 @@ ActiveRecord::Schema[7.2].define(version: 2025_01_21_214610) do
   create_table "external_articles", force: :cascade do |t|
     t.string "title", null: false
     t.text "body", null: false
-    t.integer "event_id", null: false
-    t.float "relevance_score", default: 0.0
+    t.string "event_id"
+    t.float "relevance", default: 0.0
+    t.float "sentiment", default: 0.0
     t.string "source"
     t.string "url", null: false
     t.string "location"
+    t.string "image"
     t.bigint "category_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_external_articles_on_category_id"
   end
 

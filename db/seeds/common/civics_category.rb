@@ -69,10 +69,6 @@ Category.create(
           name: "dmoz/Society/Philanthropy/Homeless"
         },
         {
-          name: "dmoz/Society/Politics/Democracy",
-          locations_attributes: [ { name: "Washington,_D.C." }, { name: "Ottawa" } ]
-        },
-        {
           name: "dmoz/Society/Organizations/Advocacy"
         },
         {
@@ -83,6 +79,19 @@ Category.create(
         },
         {
           name: "dmoz/Health/Public_Health_and_Safety/Community_Health"
+        },
+        {
+          name: "dmoz/Society/Politics/Conservatism"
+        },
+        {
+          name: "dmoz/Society/Politics/Fascism"
+        },
+        {
+          name: "dmoz/Society/Politics/Federalism_and_Devolution"
+        },
+        {
+          name: "dmoz/Society/Politics/Democracy",
+          locations_attributes: [ { name: "Washington,_D.C." }, { name: "Ottawa" } ]
         },
         {
           name: "dmoz/Society/Politics/Campaigns_and_Elections",
@@ -99,15 +108,6 @@ Category.create(
         {
           name: "dmoz/Society/Politics/Civic_Participation",
           locations_attributes: [ { name: "Canada" }, { name: "Ottawa" }, { name: "United_States" }, { name: "Washington._D.C." } ]
-        },
-        {
-          name: "dmoz/Society/Politics/Conservatism"
-        },
-        {
-          name: "dmoz/Society/Politics/Fascism"
-        },
-        {
-          name: "dmoz/Society/Politics/Federalism_and_Devolution"
         }
       ]
     }
