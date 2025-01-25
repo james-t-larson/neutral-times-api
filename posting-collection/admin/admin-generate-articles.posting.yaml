@@ -1,0 +1,2 @@
+name: admin/generate_articles
+url: $BASE_URL/admin/generate_articles
