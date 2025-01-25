@@ -4,6 +4,6 @@ Rails.application.config.after_initialize do
 
   scheduler.cron "5 0 * * *" do
     Rails.logger.info "Running Scheduler task at midnight... (#{Time.now.in_time_zone('Pacific Time (US & Canada)')})"
-    Services::Articles::GenerationService.generate()
+    Services::Articles::Generate.generate()
   end
 end

@@ -54,8 +54,8 @@
 ## Doing
 
 - Implement Categories
-    * [ ] Ensure that the last external batch published is new before generating new articles
-    * [ ] Write endpoint to trigger article generation
+    * [x] Ensure that the last external batch published is new before generating new articles
+    * [x] Write endpoint to trigger article generation
     * [x] Ensure that duplicate articles are caught when retriving articles, there is potential that two categories catch the same article
     * [x] Add jobs for managing calls to all the different services
     * [x] Thie is the second version of the api
