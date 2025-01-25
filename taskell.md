@@ -11,13 +11,11 @@
     > Need to make sure that these are effective.
     > Can use the responses from this as a way to train the assistant with fine tuning.
     * [ ] Add column to prompts table to track plagerism failures
-- There needs to be able to mark a certain article as bad, and maybe a  check list for how?
-- Integrate with Mozilla TTS
-    > I would like the news read to me. Check out Mozilla TTS and see if it's good enough for this
 - User Profiles need to be defined
     > Sessions are needed for invites, no need for preferences for mvp
 - Switch to an open source LLM
 - Images should mainly be sketches
+    * [ ] Find image generation ai to convert images to sketches
 - Integrate with a citation machine for sources
     > There is a gem called citeproc-ruby that might work. This would be good for getting all the articles around a specific event and putting them into sources for the article
 - Add Morning Brief
@@ -29,13 +27,9 @@
 
 ## To Do
 
-- Request validation should happen in before parsing the request.
+- Request validation in OpenAi integration should happen before parsing the request.
+    * [ ] Shold retry on failure
 - Fix tests, get pre-commit hook working, even when another person pulls the project
-- Add admin endpoint for to trigger article generation job
-- BUG: Multiple articles are created with same article title, but different content
-    * [ ] The problem is coming from the event registry,
-    * [ ] 
-    * [ ] x
 - Get new domains with sub domains working
     * [ ] Point stage.neutraltimes.press pointed at current env
     * [ ] Get neutraltimes.press pointed at current env as well, should not let anyone through
@@ -43,9 +37,6 @@
 - Github actions should build on merge to main
     > Tests are run locally and in develop before merge to main 
 - Add Lazydocker to nvim
-- Update swagger so that it points at the correct domain depending on the env
-    * [ ] Need to get around basic auth in dev somehow
-    * [ ] 
 - Complete Tests for OpenAi Service
 - Complete Tests for Event Registry
 - Get Lazydocker working in AWS instance. Can't even get into rails c without googling
@@ -54,6 +45,7 @@
 ## Doing
 
 - Implement Categories
+    * [ ] Finish Endpoints for creating new articles
     * [x] Ensure that the last external batch published is new before generating new articles
     * [x] Write endpoint to trigger article generation
     * [x] Ensure that duplicate articles are caught when retriving articles, there is potential that two categories catch the same article
@@ -160,3 +152,6 @@
     * [ ] If api key is passed, but does not find a match, reject with 401 and empty body
     * [ ] There should be admin api keys
     * [ ] Should only affect v2/articles and admin routes
+- BUG: Multiple articles are created with same article title, but different content
+    * [x] The problem was caused by rate limiting and concurrancy issues as OpenAi takes forever, frequent retries happened
+- Add admin endpoint for to trigger article generation job
