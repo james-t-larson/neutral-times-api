@@ -29,6 +29,7 @@
 
 ## To Do
 
+- Update Articles Model
 - Request validation in OpenAi integration should happen before parsing the request.
     * [ ] Shold retry on failure
 - Fix tests, get pre-commit hook working, even when another person pulls the project
@@ -47,7 +48,9 @@
 ## Doing
 
 - Implement Categories
-    * [ ] Finish Endpoints for creating new articles
+    * [ ] Add relevance to Articles, set the default scope to order by relevance
+    * [ ] Set the default scope for categories to order by position
+    * [x] Finish Endpoints for creating new articles
     * [x] Ensure that the last external batch published is new before generating new articles
     * [x] Write endpoint to trigger article generation
     * [x] Ensure that duplicate articles are caught when retriving articles, there is potential that two categories catch the same article
@@ -62,6 +65,7 @@
     * [x] Rename sub_categories to external categories
     * [x] Implment Serializers, organize directories
     * [x] Write Data Preperations Service
+- Rename everything to Measured Gazette
 
 ## Done
 
