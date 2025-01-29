@@ -1,6 +1,6 @@
-# Neutral Times API
+# The Measured Gazette API
 
-**Neutral Times API** is an automated platform that uses AI (powered by GPT) to gather and generate unbiased news articles based on the latest events. The system queries online sources every 12 hours to create dynamic, neutral news stories.
+**The Measured Gazette API** is an automated platform that uses LLM's to  gather and generate unbiased news articles based on the latest events. The system queries online sources every 12 hours to create dynamic news stories.
 
 ---
 
@@ -31,8 +31,8 @@
 1. **Clone the repository**:
 
     ```bash
-    git clone https://github.com/yourusername/neutral-news-api.git
-    cd neutral-news-api
+    git clone https://github.com/yourusername/measured-gazette-api.git
+    cd measured-gazette-api
     ```
 
 2. **Install dependencies**:

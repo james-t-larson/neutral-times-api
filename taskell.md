@@ -34,8 +34,9 @@
     * [ ] Shold retry on failure
 - Fix tests, get pre-commit hook working, even when another person pulls the project
 - Get new domains with sub domains working
-    * [ ] Point staging.neutraltimes.press pointed at current env
-    * [ ] Get neutraltimes.press pointed at current env as well, should not let anyone through
+    * [ ] Buy a domain for the Measured Gazette
+    * [ ] Link to static ip
+    * [ ] Set nginx up
 - Get reporting working (logs, and alerts)
 - Github actions should build on merge to main
     > Tests are run locally and in develop before merge to main 

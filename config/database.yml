@@ -22,14 +22,14 @@ default: &default
 
 development:
   <<: *default
-  database: neutral_news_api_development
+  database: measured_gazette_api_development
   password: password
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
   # When left blank, PostgreSQL will use the default role. This is
   # the same name as the operating system user running Rails.
-  #username: neutral_news_api
+  #username: measured_gazette_api
 
   # The password associated with the PostgreSQL role (username).
   #password:
@@ -60,7 +60,7 @@ test:
   <<: *default
   adapter: postgresql
   encoding: unicode
-  database: neutral_news_api_test
+  database: measured_gazzete_api_test
   username: postgres
   password: postgres
   host: localhost
@@ -88,6 +88,6 @@ test:
 #
 production:
   <<: *default
-  database: neutral_news_api_production
-  username: neutral_news_api
-  password: <%= ENV["NEUTRAL_NEWS_API_DATABASE_PASSWORD"] %>
+  database: measured_gazette_api_production
+  username: measured_gazette_api
+  password: <%= ENV["MEASURED_GAZETTE_API_DATABASE_PASSWORD"] %>
