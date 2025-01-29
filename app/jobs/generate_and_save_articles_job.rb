@@ -16,7 +16,8 @@ class GenerateAndSaveArticlesJob < ApplicationJob
         image: external_article.image,
         event_id: external_article.event_id,
         location: external_article.location,
-        sources: external_article.source
+        sources: external_article.source,
+        relevance: external_article.relevance
       })
       puts "[#{Time.now}]: Completed GenerateAndSaveArticlesJob"
     end

@@ -47,9 +47,13 @@
 
 ## Doing
 
+- Rename everything to Measured Gazette
+
+## Done
+
 - Implement Categories
-    * [ ] Add relevance to Articles, set the default scope to order by relevance
-    * [ ] Set the default scope for categories to order by position
+    * [x] Add relevance to Articles, set the default scope to order by relevance
+    * [x] Set the default scope for categories to order by position
     * [x] Finish Endpoints for creating new articles
     * [x] Ensure that the last external batch published is new before generating new articles
     * [x] Write endpoint to trigger article generation
@@ -65,10 +69,6 @@
     * [x] Rename sub_categories to external categories
     * [x] Implment Serializers, organize directories
     * [x] Write Data Preperations Service
-- Rename everything to Measured Gazette
-
-## Done
-
 - Get taskell working in nvim
     > https://github.com/romariorobby/taskell.nvim
     * [x] Get plugin installed

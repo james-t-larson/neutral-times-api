@@ -27,6 +27,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_01_21_214610) do
     t.float "sentiment_score", default: 0.0
     t.string "event_id"
     t.string "location"
+    t.float "relevance"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -46,7 +47,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_01_21_214610) do
     t.string "title", null: false
     t.text "body", null: false
     t.string "event_id"
-    t.float "relevance", default: 0.0
+    t.float "relevance"
     t.float "sentiment", default: 0.0
     t.string "source"
     t.string "url", null: false

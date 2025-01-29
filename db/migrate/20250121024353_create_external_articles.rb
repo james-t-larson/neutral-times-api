@@ -4,7 +4,7 @@ class CreateExternalArticles < ActiveRecord::Migration[7.2]
       t.string :title, null: false
       t.text :body, null: false
       t.string :event_id
-      t.float :relevance, default: 0.0
+      t.float :relevance
       t.float :sentiment, default: 0.0
       t.string :source
       t.string :url, null: false

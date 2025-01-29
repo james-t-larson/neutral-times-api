@@ -1,4 +1,6 @@
 class Article < ApplicationRecord
+  default_scope { order(:relevance) }
+
   validates :title, :summary, :content, :sources, presence: true
 
   scope :recent, -> { where(created_at: 7.days.ago.beginning_of_day..Time.now.end_of_day) }
