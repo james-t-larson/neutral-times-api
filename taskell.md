@@ -29,7 +29,7 @@
 
 ## To Do
 
-- Update Articles Model
+- Get sentiment working properly for generated articles
 - Request validation in OpenAi integration should happen before parsing the request.
     * [ ] Shold retry on failure
 - Fix tests, get pre-commit hook working, even when another person pulls the project
@@ -48,7 +48,7 @@
 
 ## Doing
 
-- Rename everything to Measured Gazette
+- Fix categories endpoint
 
 ## Done
 
@@ -162,3 +162,5 @@
 - BUG: Multiple articles are created with same article title, but different content
     * [x] The problem was caused by rate limiting and concurrancy issues as OpenAi takes forever, frequent retries happened
 - Add admin endpoint for to trigger article generation job
+- Rename everything to Measured Gazette
+- Update Articles Model

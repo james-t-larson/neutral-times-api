@@ -3,7 +3,7 @@ class CategoriesBaseController < ApplicationController
 
   def index
     @categories = Category.all.
-    generic_render(data: @categories).order(:position)
+    generic_render(data: @categories)
   end
 
   def show
