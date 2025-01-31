@@ -6,22 +6,14 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module NeutralTimesApi
+module MeasuredGazetteApi
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 7.2
+    config.load_defaults 7.0
     config.api_only = true
     config.time_zone = "Pacific Time (US & Canada)"
     config.active_record.yaml_column_permitted_classes = [ Time, Date, Symbol, ActiveSupport::TimeWithZone, ActiveSupport::TimeZone, ActiveSupport::HashWithIndifferentAccess ]
     # config.autoload_paths += Dir[Rails.root.join("app", "serializers", "**", "*.rb")]
-
-    Dir[Rails.root.join("app", "serializers", "**", "*.rb")].sort.each do |file|
-      require file
-    end
-
-    Dir[Rails.root.join("app", "services", "**", "*.rb")].sort.each do |file|
-      require file
-    end
 
     config.generators do |g|
       g.test_framework :rspec

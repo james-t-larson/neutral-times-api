@@ -6,7 +6,7 @@ class GenerateAndSaveArticlesJob < ApplicationJob
     @@mutex.synchronize do
       puts "[#{Time.now}]: Starting GenerateAndSaveArticlesJob"
       return unless Article.find_by(external_article_id: external_article.id).nil?
-      content = Services::OpenAI::Integration.new.generate_article(external_article)[:article]
+      content = Openai::Integration.new.generate_article(external_article)[:article]
       Article.find_or_create_by({
         title: content[:title],
         summary: content[:summary],

@@ -1,12 +1,10 @@
-module Serializers
-  module EventRegistry
-    class Category
-      def self.serialize(categories)
-        categories.map do |category|
-          {
-            "categoryUri": category.name
-          }
-        end
+module EventRegistry
+  class Category
+    def self.serialize(categories)
+      categories.map do |category|
+        {
+          "categoryUri": category.name
+        }
       end
     end
   end
