@@ -10,25 +10,21 @@
 #
 # # Clear existing data (optional, if you want to start fresh)
 
-if Rails.env.production?
-  puts "Seeding is disabled in production!"
-  exit
+puts "Starting seeding process..."
+
+def run_seeds(files)
+  Dir[Rails.root.join(files)].each do |seed|
+    load seed
+  end
 end
 
-Article.destroy_all
+seeds_directories = [
+  'db/seeds/common/*.rb',
+  "db/seeds/#{Rails.env}/*.rb"
+]
 
-article1 = Article.create!(
-  title: "Breaking News: Ruby on Rails Rocks!",
-  summary: "A detailed article about how Ruby on Rails is a powerful web development framework.",
-  content: "TESTING",
-  sources: "TESTING"
-)
+for directory in seeds_directories do
+  run_seeds(directory)
+end
 
-article2 = Article.create!(
-  title: "The Future of AI in Web Development",
-  summary: "Exploring how AI is changing the web development landscape, with practical examples.",
-  content: "TESTING",
-  sources: "TESTING"
-)
-
-puts "Seed data successfully created!"
+puts "Seeding process completed!"

@@ -1,5 +1,8 @@
 ## Long-Term Goals
 
+- Image resizing needs to be added to support a responsive layout
+- Remove Swagger, find yaml to mark down converter
+- Switch to an open source LLM
 - Add Gem for readibility
     > Can be used to guage the performance of a prompt
     * [ ] Add column to track the current prompts readibility
@@ -11,15 +14,10 @@
     > Need to make sure that these are effective.
     > Can use the responses from this as a way to train the assistant with fine tuning.
     * [ ] Add column to prompts table to track plagerism failures
-- There needs to be able to mark a certain article as bad, and maybe a  check list for how?
-- Integrate with Mozilla TTS
-    > I would like the news read to me. Check out Mozilla TTS and see if it's good enough for this
 - User Profiles need to be defined
     > Sessions are needed for invites, no need for preferences for mvp
-- Use Git integration with SimpleCov to ensure that any change has tests written
-    > simplecov-icov has a tool that can check tests for only changed files. this should ensure nearly 100% test coverage and catch anything that isn't tested
-- Switch to an open source LLM
 - Images should mainly be sketches
+    * [ ] Find image generation ai to convert images to sketches
 - Integrate with a citation machine for sources
     > There is a gem called citeproc-ruby that might work. This would be good for getting all the articles around a specific event and putting them into sources for the article
 - Add Morning Brief
@@ -31,29 +29,18 @@
 
 ## To Do
 
+- Update Articles Model
+- Request validation in OpenAi integration should happen before parsing the request.
+    * [ ] Shold retry on failure
+- Fix tests, get pre-commit hook working, even when another person pulls the project
 - Get new domains with sub domains working
-    * [ ] Point stage.neutraltimes.press pointed at current env
-    * [ ] Get neutraltimes.press pointed at current env as well, should not let anyone through
-- Add authentication with api keys.
-    * [ ] If no api key is passed reject with basic auth, do no notify the user
-    * [ ] If api key is passed, but does not find a match, reject with 401 and empty body
-    * [ ] There should be admin api keys
-    * [ ] Should only affect v2/articles and admin routes
+    * [ ] Buy a domain for the Measured Gazette
+    * [ ] Link to static ip
+    * [ ] Set nginx up
 - Get reporting working (logs, and alerts)
-- Implement Categories
-    * [ ] Make sure to create a v1 folder for this
-    * [ ] Should be a single endpoint
-    * [ ] Add category param to Article V2
-    * [ ] When requesting categories, it should get all Articles (for the day) in that category
-    * [ ] Should be some main categorues
-    * [ ] I don't want to needlessly write articles. See if I can write articles when they are clicked?
-- Event Registry should not create more than 10 articles at a time
 - Github actions should build on merge to main
     > Tests are run locally and in develop before merge to main 
 - Add Lazydocker to nvim
-- Update swagger so that it points at the correct domain depending on the env
-    * [ ] Need to get around basic auth in dev somehow
-    * [ ] 
 - Complete Tests for OpenAi Service
 - Complete Tests for Event Registry
 - Get Lazydocker working in AWS instance. Can't even get into rails c without googling
@@ -61,12 +48,28 @@
 
 ## Doing
 
-- Prompt should be changed to reduce emotional language.
-    * [ ] The current prompt have content that makes it easy to detect as an ai. 
-    * [x] The old prompt is to complex. Reduce complexity
+- Rename everything to Measured Gazette
 
 ## Done
 
+- Implement Categories
+    * [x] Add relevance to Articles, set the default scope to order by relevance
+    * [x] Set the default scope for categories to order by position
+    * [x] Finish Endpoints for creating new articles
+    * [x] Ensure that the last external batch published is new before generating new articles
+    * [x] Write endpoint to trigger article generation
+    * [x] Ensure that duplicate articles are caught when retriving articles, there is potential that two categories catch the same article
+    * [x] Add jobs for managing calls to all the different services
+    * [x] Thie is the second version of the api
+    * [x] Add category param to Article V2
+    * [x] Implment Sports, Finance, Technology, Civics, Relavent,
+    * [x] Make sure that categories and places match up, I don't care about the housing market in Montana, but I car about governance there for example
+    * [x] Make needed changes to event registry service
+    * [x] Use the generic response method for categories
+    * [x] Update migrations to not expect null, add validations
+    * [x] Rename sub_categories to external categories
+    * [x] Implment Serializers, organize directories
+    * [x] Write Data Preperations Service
 - Get taskell working in nvim
     > https://github.com/romariorobby/taskell.nvim
     * [x] Get plugin installed
@@ -146,3 +149,16 @@
 - bin/brakman should be added to my over commit hook.
     > This is to make sure that it doesn't fail security checks in the actions
 - When updating a prompt it should set sentiment and usage to back to 0
+- Use Git integration with SimpleCov to ensure that any change has tests written
+    > simplecov-icov has a tool that can check tests for only changed files. this should ensure nearly 100% test coverage and catch anything that isn't tested
+- Prompt should be changed to reduce emotional language.
+    * [x] The current prompt have content that makes it easy to detect as an ai. 
+    * [x] The old prompt is to complex. Reduce complexity
+- Add authentication with api keys.
+    * [ ] If no api key is passed reject with basic auth, do no notify the user
+    * [ ] If api key is passed, but does not find a match, reject with 401 and empty body
+    * [ ] There should be admin api keys
+    * [ ] Should only affect v2/articles and admin routes
+- BUG: Multiple articles are created with same article title, but different content
+    * [x] The problem was caused by rate limiting and concurrancy issues as OpenAi takes forever, frequent retries happened
+- Add admin endpoint for to trigger article generation job

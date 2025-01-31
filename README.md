@@ -1,6 +1,6 @@
-# Neutral Times Gen
+# The Measured Gazette API
 
-**Neutral Times Gen** is an automated platform that uses AI (powered by GPT) to gather and generate unbiased news articles based on the latest events. The system queries online sources every 12 hours to create dynamic, neutral news stories.
+**The Measured Gazette API** is an automated platform that uses LLM's to  gather and generate unbiased news articles based on the latest events. The system queries online sources every 12 hours to create dynamic news stories.
 
 ---
 
@@ -31,8 +31,8 @@
 1. **Clone the repository**:
 
     ```bash
-    git clone https://github.com/yourusername/neutral-news-gen.git
-    cd neutral-news-gen
+    git clone https://github.com/yourusername/measured-gazette-api.git
+    cd measured-gazette-api
     ```
 
 2. **Install dependencies**:
@@ -88,68 +88,3 @@
     ```
 ---
 
-## API Endpoints
-### Version: v1
-
-### /articles
-
-#### GET
-##### Summary:
-
-Retrieves articles from today
-
-##### Responses
-
-| Code | Description |
-| ---- | ----------- |
-| 200 | articles found |
-
-
-```json
-[
-  {
-    "id": 24,
-    "title": "Polymarket Speculator Profits $48M from Trump Bets: A Balanced Look",
-    "summary": "A deep dive into the recent Polymarket speculation sees one investor profiting substantially from betting on Donald Trump's election outcomes, as well as the broader implications and perspectives surrounding the event.",
-    "created_at": "2024-11-07T21:00:22.256Z",
-    "updated_at": "2024-11-07T21:00:22.256Z",
-    "content": "In recent developments, a significant player in the prediction market platform Polymarket has..."
-  },
-]
-
-```
-
-### /articles/{id}
-
-#### GET
-##### Summary:
-
-Retrieves a specific article
-
-##### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ---- |
-| id | path | ID of the article | Yes | integer |
-
-##### Responses
-
-| Code | Description |
-| ---- | ----------- |
-| 200 | article found |
-| 404 | article not found |
-
-##### Example Responses
-
-```json
-
-{
-"id": 24,
-"title": "Polymarket Speculator Profits $48M from Trump Bets: A Balanced Look",
-"summary": "A deep dive into the recent Polymarket speculation sees one investor profiting substantially from betting on Donald Trump's election outcomes, as well as the broader implications and perspectives surrounding the event.",
-"created_at": "2024-11-07T21:00:22.256Z",
-"updated_at": "2024-11-07T21:00:22.256Z",
-"content": "In recent developments, a significant player in the prediction market platform Polymarket has..."
-}
-
-```

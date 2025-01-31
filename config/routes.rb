@@ -6,9 +6,18 @@ Rails.application.routes.draw do
 
   namespace :v2 do
     resources :articles, only: [ :index, :show ]
+    resources :categories, only: [ :index, :show ] do
+      resources :articles, only: [ :index ], controller: "articles"
+    end
   end
 
   namespace :admin do
+    resources :generate_articles, only: [ :create ], controller: "generate_articles"
+
+    resources :categories do
+      resources :articles, controller: "articles"
+    end
+
     resources :prompts do
       collection do
         get "versions"
