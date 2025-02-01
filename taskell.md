@@ -29,7 +29,7 @@
 
 ## To Do
 
-- Update Articles Model
+- Get sentiment working properly for generated articles
 - Request validation in OpenAi integration should happen before parsing the request.
     * [ ] Shold retry on failure
 - Fix tests, get pre-commit hook working, even when another person pulls the project
@@ -43,12 +43,10 @@
 - Add Lazydocker to nvim
 - Complete Tests for OpenAi Service
 - Complete Tests for Event Registry
-- Get Lazydocker working in AWS instance. Can't even get into rails c without googling
 - Complete Tests for Generation Service
 
 ## Doing
 
-- Rename everything to Measured Gazette
 
 ## Done
 
@@ -162,3 +160,6 @@
 - BUG: Multiple articles are created with same article title, but different content
     * [x] The problem was caused by rate limiting and concurrancy issues as OpenAi takes forever, frequent retries happened
 - Add admin endpoint for to trigger article generation job
+- Rename everything to Measured Gazette
+- Update Articles Model
+- Fix categories endpoint

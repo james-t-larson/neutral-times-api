@@ -1,2 +1,4 @@
 name: articles
 url: $BASE_URL/v2/articles
+params:
+- name: api_key
