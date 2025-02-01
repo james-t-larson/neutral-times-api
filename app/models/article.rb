@@ -11,6 +11,12 @@ class Article < ApplicationRecord
     where(created_at: date.beginning_of_day..date.end_of_day)
   }
 
+  scope :by_category, ->(category) {
+    return all if category == nil
+    first_category_id = Category.all.first&.id
+    first_category_id == category.id ? all : where(category_id: category&.id)
+  }
+
   scope :last_batch_published, -> {
     if (last_article = order(created_at: :desc).first)
       published_on(last_article.created_at.to_date)

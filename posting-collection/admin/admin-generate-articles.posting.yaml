@@ -1,3 +1,14 @@
 name: admin/generate_articles
 method: POST
 url: $BASE_URL/admin/generate_articles
+body:
+  content: |-
+    {
+      "limit": 1
+    }
+  content_type: application/json
+headers:
+- name: content-type
+  value: application/json
+params:
+- name: api_key

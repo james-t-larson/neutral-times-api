@@ -1,6 +1,6 @@
 module Articles
   class Generate
-    def self.generate
+    def self.perform(limit = nil)
       prepped_groups = []
       Category.all.each do |category|
         groups = EventRegistry::DataPreperation.prepare(category)
@@ -15,7 +15,9 @@ module Articles
       end
 
       if DateTime.now.beginning_of_day < ExternalArticle.last.created_at
-        ExternalArticle.last_batch_published.each do |article|
+        articles = ExternalArticle.last_batch_published
+        articles = articles.first(limit) if limit
+        articles.each do |article|
           GenerateAndSaveArticlesJob.perform_later(article)
         end
       end

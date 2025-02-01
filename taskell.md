@@ -43,12 +43,10 @@
 - Add Lazydocker to nvim
 - Complete Tests for OpenAi Service
 - Complete Tests for Event Registry
-- Get Lazydocker working in AWS instance. Can't even get into rails c without googling
 - Complete Tests for Generation Service
 
 ## Doing
 
-- Fix categories endpoint
 
 ## Done
 
@@ -164,3 +162,4 @@
 - Add admin endpoint for to trigger article generation job
 - Rename everything to Measured Gazette
 - Update Articles Model
+- Fix categories endpoint
