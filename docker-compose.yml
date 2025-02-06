@@ -4,10 +4,9 @@ services:
     ports:
       - "3000:3000"
     container_name: mg_api
-    image: mg_api:latest
+    image: mg_api:${IMAGE_TAG}
     environment:
       DATABASE_URL: postgres://postgres:postgres@db:5432
-      SECRET_KEY_BASE: "8d8d9b6c3216759f1ad95c7f526f09b1f0e1cccae28992870e81c6006800eb38058a39778093f107a85f87135ae8045b0a4a25e4cadeb17932f0335d2118147f"
       # REDIS_URL: redis://redis:6379/0
     depends_on:
       - db
