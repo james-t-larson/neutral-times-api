@@ -49,8 +49,12 @@
 
 ## Doing
 
-- The generation service is not being called, and failing to generate articles on the first call
-    > There also seems to be a problem with concurrancy in the event registry. Articles are not being placed in the correct category
+- Implement sidekiq for async workers
+    > There seems to be a problem with concurrancy in the event registry. Articles are not being placed in the correct category
+    * [ ] configure redis store
+    * [ ] get docker working for development and production
+    * [ ] install and set up sidekiq
+    * [ ] add sidekiq as a docker container (optional)
     * [ ] Switch to sidekiq, only one job should run at a time
 
 ## Done
