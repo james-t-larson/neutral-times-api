@@ -1,3 +1,3 @@
 #!/bin/bash
-export IMAGE_TAG=$(date +%Y%m%d%H%M%S)-$(git rev-parse --short HEAD)
+export IMAGE_TAG=$(git rev-parse --short HEAD)
 docker-compose up -d

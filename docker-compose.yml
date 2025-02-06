@@ -5,15 +5,13 @@ services:
       - "3000:3000"
     container_name: mg_api
     image: mg_api:${IMAGE_TAG}
-    environment:
-      DATABASE_URL: postgres://postgres:postgres@db:5432
-      # REDIS_URL: redis://redis:6379/0
+    env_file:
+      - .env
     depends_on:
       - db
-      # - redis
+      - redis
     volumes:
       - .:/app
-      - ./config/master.key:/rails/config/master.key:ro
     networks:
       - mg_network
 
@@ -34,15 +32,15 @@ services:
     networks:
       - mg_network
 
-  # redis:
-  #   image: redis
-  #   ports:
-  #     - "6379:6379"
-  #   healthcheck:
-  #     test: ["CMD", "redis-cli", "ping"]
-  #     interval: 10s
-  #     timeout: 5s
-  #     retries: 5
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
 volumes:
   db_data:
