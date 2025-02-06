@@ -1,2 +1,5 @@
 name: categories/:id/articles
 url: $BASE_URL/v2/categories/1/articles
+params:
+  - name: api_key
+    value: $API_KEY

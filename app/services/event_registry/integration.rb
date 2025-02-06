@@ -20,8 +20,8 @@ module EventRegistry
                   "$or": group[:locations]
                 },
                 {
-                  "dateStart": Date.yesterday.iso8601(),
-                  "dateEnd": Date.yesterday.iso8601(),
+                  "dateStart": Date.today.iso8601(),
+                  "dateEnd": Date.today.iso8601(),
                   "lang": "eng"
                 }
               ]

@@ -13,6 +13,7 @@
 
 # Ignore all environment files (except templates).
 /.env*
+/posting-envs/
 !/.env*.erb
 
 # Ignore all logfiles and tempfiles.

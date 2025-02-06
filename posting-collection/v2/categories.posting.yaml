@@ -1,2 +1,5 @@
 name: categories
 url: $BASE_URL/v2/categories
+params:
+  - name: api_key
+    value: $API_KEY
