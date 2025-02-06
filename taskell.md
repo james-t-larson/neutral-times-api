@@ -1,5 +1,7 @@
 ## Long-Term Goals
 
+- Find a way to detect emotional appeals
+    > This is the best way that I can find to detect polerization
 - Image resizing needs to be added to support a responsive layout
 - Remove Swagger, find yaml to mark down converter
 - Switch to an open source LLM
@@ -29,27 +31,34 @@
 
 ## To Do
 
+- Expand Event Registry to all publishers and widen range of sentiment filter
+    > Not enough articles are coming in
 - Get sentiment working properly for generated articles
+    * [ ] Log difference between original article and the current prompts article
+- Add tests for all responses
+    > Adding all tests takes far to much time
+- Fix tests, get pre-commit hook working, even when another person pulls the project
 - Request validation in OpenAi integration should happen before parsing the request.
     * [ ] Shold retry on failure
-- Fix tests, get pre-commit hook working, even when another person pulls the project
-- Get new domains with sub domains working
-    * [ ] Buy a domain for the Measured Gazette
-    * [ ] Link to static ip
-    * [ ] Set nginx up
 - Get reporting working (logs, and alerts)
+    > a
+    * [x] Get logs working
+    * [ ] Get alerts working
 - Github actions should build on merge to main
     > Tests are run locally and in develop before merge to main 
-- Add Lazydocker to nvim
-- Complete Tests for OpenAi Service
-- Complete Tests for Event Registry
-- Complete Tests for Generation Service
 
 ## Doing
 
+- The generation service is not being called, and failing to generate articles on the first call
+    > There also seems to be a problem with concurrancy in the event registry. Articles are not being placed in the correct category
+    * [ ] Switch to sidekiq, only one job should run at a time
 
 ## Done
 
+- Get new domains with sub domains working
+    * [x] Buy a domain for the Measured Gazette
+    * [x] Link to static ip
+    * [x] Set nginx up
 - Implement Categories
     * [x] Add relevance to Articles, set the default scope to order by relevance
     * [x] Set the default scope for categories to order by position
