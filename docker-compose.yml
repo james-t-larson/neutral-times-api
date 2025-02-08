@@ -1,19 +1,35 @@
 services:
-  api:
-    build: .
-    ports:
-      - "3000:3000"
-    container_name: mg_api
-    image: mg_api:${IMAGE_TAG}
+  api: &base_api
+    build:
+      context: .
     env_file:
       - .env
+    ports:
+      - "3000:3000"
     depends_on:
       - db
       - redis
-    volumes:
-      - .:/app
     networks:
       - mg_network
+
+  api_production:
+    <<: *base_api
+    image: mg_api:${IMAGE_TAG:-production}
+    container_name: mg_api_production
+    build:
+      dockerfile: ./docker/Dockerfile.production
+    restart: always
+
+  api_development:
+    <<: *base_api
+    image: mg_api:development
+    container_name: mg_api_development
+    build:
+      dockerfile: ./docker/Dockerfile.development
+    volumes:
+      - .:/app
+      - "/app/tmp"
+      - bundle_cache:/rails/vendor/bundle
 
   db:
     image: postgres
@@ -34,6 +50,7 @@ services:
 
   redis:
     image: redis
+    container_name: mg_redis
     ports:
       - "6379:6379"
     healthcheck:
@@ -45,6 +62,7 @@ services:
 volumes:
   db_data:
     name: mg_db_data
+  bundle_cache:
 
 networks:
   mg_network:

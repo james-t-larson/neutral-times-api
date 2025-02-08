@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Check if arguments are provided
 if [ "$#" -eq 0 ]; then
   echo "Error: No container name provided."
   echo "Available containers:"
@@ -8,5 +7,4 @@ if [ "$#" -eq 0 ]; then
   exit 1
 fi
 
-# Try to fetch logs
 docker logs -f "$@" 2>/dev/null

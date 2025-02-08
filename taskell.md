@@ -59,6 +59,12 @@
 
 ## Done
 
+- Setup docker for development and production
+    * [x] Create base, and env specific docker files 
+    * [x] Create base and env specific docker compose files
+    * [x] Store all env vars in .env. Docker will automatticaly use this for env vars
+    * [x] Try to enable starting docker with a flag -production or -development to easily start either. This is to avoid long docker-compose commands
+    * [x] Ensure that the image name is tagged for production
 - Get new domains with sub domains working
     * [x] Buy a domain for the Measured Gazette
     * [x] Link to static ip
