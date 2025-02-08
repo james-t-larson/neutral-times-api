@@ -31,6 +31,7 @@
 
 ## To Do
 
+- Create doc for getting db and redis setup for development
 - Expand Event Registry to all publishers and widen range of sentiment filter
     > Not enough articles are coming in
 - Get sentiment working properly for generated articles
@@ -51,8 +52,8 @@
 
 - Implement sidekiq for async workers
     > There seems to be a problem with concurrancy in the event registry. Articles are not being placed in the correct category
-    * [ ] configure redis store
-    * [ ] get docker working for development and production
+    * [x] configure redis store
+    * [x] get docker working for development and production
     * [ ] install and set up sidekiq
     * [ ] add sidekiq as a docker container (optional)
     * [ ] Switch to sidekiq, only one job should run at a time
