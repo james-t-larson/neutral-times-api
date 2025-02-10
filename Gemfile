@@ -45,7 +45,7 @@ gem "httparty"
 
 gem "json-schema"
 
-gem "rspec-rails", "7.1.0"
+gem "rspec-rails", "7.1.1"
 
 gem "rswag"
 
