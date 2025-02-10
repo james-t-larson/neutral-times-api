@@ -1,6 +1,14 @@
 class V2::ArticlesController < ::ArticlesController
   before_action :set_category, if: -> { params[:category_id].present? }, only: [ :index ]
 
+  def show
+    param!(:id, Integer)
+
+    @article = Article.find(params[:id])
+    render json: @article.as_json
+    generic_render(data: @article)
+  end
+
   def index
     param!(:date, String); validate_date
 

@@ -9,6 +9,7 @@ services:
     depends_on:
       - db
       - redis
+      - sidekiq
     networks:
       - mg_network
 
@@ -30,6 +31,15 @@ services:
       - .:/app
       - "/app/tmp"
       - bundle_cache:/rails/vendor/bundle
+
+  sidekiq:
+    build: .
+    command: bundle exec sidekiq -C config/sidekiq.yml
+    depends_on:
+      - redis
+    env_file: .env
+    volumes:
+      - .:/app
 
   db:
     image: postgres

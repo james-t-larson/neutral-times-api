@@ -53,7 +53,7 @@ module Openai
           "Authorization" => "Bearer #{@api_key}",
           "Content-Type" => "application/json"
         },
-        body: request_payload(article.title, article.body).to_json
+        body: request_payload(article["title"], article["body"]).to_json
       )
 
       reset_rate_limit = (response.headers["x-ratelimit-reset-requests"].to_f / 1000) + 1

@@ -350,6 +350,16 @@ GEM
     sentimental (1.5.0)
     shoulda-matchers (6.4.0)
       activesupport (>= 5.2.0)
+    sidekiq (7.3.8)
+      base64
+      connection_pool (>= 2.3.0)
+      logger
+      rack (>= 2.2.4)
+      redis-client (>= 0.22.2)
+    sidekiq-unique-jobs (8.0.10)
+      concurrent-ruby (~> 1.0, >= 1.0.5)
+      sidekiq (>= 7.0.0, < 8.0.0)
+      thor (>= 1.0, < 3.0)
     simplecov (0.22.0)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -432,6 +442,8 @@ DEPENDENCIES
   selenium-webdriver
   sentimental
   shoulda-matchers (~> 6.4)
+  sidekiq
+  sidekiq-unique-jobs
   simplecov
   simplecov-json (~> 0.2.3)
   sprockets-rails

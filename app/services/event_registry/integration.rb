@@ -14,10 +14,10 @@ module EventRegistry
             "$query": {
               "$and": [
                 {
-                  "$or": group[:external_categories]
+                  "$or": group["external_categories"]
                 },
                 {
-                  "$or": group[:locations]
+                  "$or": group["locations"]
                 },
                 {
                   "dateStart": Date.today.iso8601(),
@@ -29,8 +29,8 @@ module EventRegistry
             "$filter": {
               "hasEvent": "skipArticlesWithoutEvent",
               "startSourceRankPercentile": 0,
-              "endSourceRankPercentile": 40,
-              "minSentiment": -0.3,
+              "endSourceRankPercentile": 90,
+              "minSentiment": -1,
               "maxSentiment": 1,
               "isDuplicate": "skipDuplicates"
             }
@@ -49,7 +49,7 @@ module EventRegistry
       }
 
       resp = self.class.post("/article/getArticles", options)
-      articles = resp.dig("articles", "results")
+      articles = resp.dig("articles", "results") || []
 
       @external_articles = ExternalArticle.pluck(:title).each_with_object({}) do |title, hash|
         hash[title] = true
@@ -66,7 +66,7 @@ module EventRegistry
           url: article["url"],
           location: article.dig("location", "label", "eng"),
           image: article["image"],
-          category_id: group[:internal_category_id]
+          category_id: group["internal_category_id"]
         } unless @external_articles[article["title"]]
       end
     end

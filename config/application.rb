@@ -13,6 +13,7 @@ module MeasuredGazetteApi
     config.load_defaults 7.0
     config.api_only = true
     config.time_zone = "Pacific Time (US & Canada)"
+    config.active_job.queue_adapter = :sidekiq
     config.active_record.yaml_column_permitted_classes = [ Time, Date, Symbol, ActiveSupport::TimeWithZone, ActiveSupport::TimeZone, ActiveSupport::HashWithIndifferentAccess ]
     # config.autoload_paths += Dir[Rails.root.join("app", "serializers", "**", "*.rb")]
 

@@ -1,7 +1,6 @@
 class Admin::GenerateArticlesController < ApplicationController
   def create
-    limit = params[:limit].to_i.positive? ? params[:limit].to_i : nil
-    Articles::Generate.perform(limit)
+    Articles::Generate.perform()
     generic_render(message: "Initiated Generation Service")
   end
 end

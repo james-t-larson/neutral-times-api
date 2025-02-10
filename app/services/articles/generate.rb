@@ -7,8 +7,10 @@ module Articles
         prepped_groups = prepped_groups + groups
       end
 
+      puts prepped_groups.first.deep_transform_keys(&:to_s)
+
       prepped_groups.each do |group|
-        FetchAndSaveArticlesJob.perform_later(group)
+        FetchAndSaveArticlesJob.perform_async(group.deep_transform_keys(&:to_s))
       end
     end
   end
