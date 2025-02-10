@@ -111,7 +111,7 @@ GEM
     diffy (3.4.3)
     docile (1.4.1)
     drb (2.2.1)
-    error_highlight (0.3.0)
+    error_highlight (0.7.0)
     erubi (1.13.0)
     et-orbi (1.2.11)
       tzinfo
@@ -420,7 +420,7 @@ DEPENDENCIES
   capybara
   debug
   diffy
-  error_highlight (= 0.3.0)
+  error_highlight (= 0.7.0)
   factory_bot_rails
   faker
   httparty
